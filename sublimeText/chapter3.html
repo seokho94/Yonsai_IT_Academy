@@ -12,7 +12,7 @@
 		<!-- 이미지가 같은 폴더내에 있다면 경로 설정X -->
 		<img src="C:\Hong\sublimeText\dog.jpg"><br>
 
-		<h3>개코 도마뱀</h3>
+		<h3>게코 도마뱀</h3>
 
 		<img src="C:\Hong\sublimeText\img\lizard.jpg">
 		<img src="C:\Hong\sublimeText\img\lizard.jpg" width="200" height="200">
@@ -33,12 +33,43 @@
 
 		<!-- 비디오 파일 삽입 하기-->
 		<h3>비디오 파일 삽입하기</h3>
+		<h4>경로 없이 삽입</h4>
+		<video width="320" height="240" autoplay controls loop title="비디오 삽입 연습하기">
+			<source src="sample-video.mp4" type="video/mp4">
+			<source src="sample-video.mp4" type="video/webm">
+			<source src="sample-video.mp4" type="video/ogg">
+		</video><br>
 
-		<video width="400" height="280" autoplay controls loop>
+		<h4>경로 설정하여 삽입</h4>
+		<video width="320" height="240" autoplay controls loop>
 			<source src="C:\Hong\sublimeText\sample-video.mp4" type="video/mp4">
 			<source src="C:\Hong\sublimeText\sample-video.mp4" type="video/webm">
 			<source src="C:\Hong\sublimeText\sample-video.mp4" type="video/ogg">
 		</video>
+
+		<!-- 글자에 링크 걸기 -->
+		<!-- a-anchor / href-hyper reference -->
+		<h2>글자에 링크 걸기</h2>
+		<h3><a href="page1.html">게코 도마뱀</a></h3>
+		<h3><a href="page2.html">크라운 피시</a></h3>
+
+		<h2>이미지에 링크 걸기</h2>
+		<h4>경로 설정 없는 이미지에 링크 걸기</h4>
+		<a href="page1.html"><img src="img/lizard.jpg" width="200"></a>
+		<a href="page2.html"><img src="img/fish.jpg" width="200"></a>
+		<br>
+		<h4> 경로 설정한 이미지에 링크 걸기</h4>
+		<a href="page1.html"><img src="C:\Hong\sublimeText\img\lizard.jpg" width="200"></a>
+		<a href="page2.html"><img src="C:\Hong\sublimeText\img\fish.jpg" width="200"></a>
+		<br>
+
+		<h2>메인 화면</h2>
+		<h3><a href="chapter3.html">메인 화면 한번 더 띄우기</a></h3>
+		<h3><a href="C:\Hong\sublimeText\chapter3.html">메인 화면 한번 더 띄우기</a></h3>
+		<br>
+
+		<h2>페이지 이동</h2>
+		<h3><a href="pagetab.html">페이지 이동</a></h3>
 
 </body>
 </html>
