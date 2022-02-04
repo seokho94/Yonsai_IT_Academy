@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<style>
+		p{
+			width: 500px;
+			border: solid 2px black;
+		}
+		/*id 선택자를 사용해서 패딩 설정*/
+		/*오버라이딩이 가능하다.*/
+		#padding1{
+			width: 500px;
+			border: solid 2px black;
+		}
+		/*p의 속성을 가지면서 id 선택자를 활용하여 추가 속성 부여 가능 */
+		#padding2{
+			/*1번*/
+			padding-top: 20px;
+			padding-right: 30px;
+			padding-bottom: 40px;
+			padding-left: 50px;
+			/*2번*/
+			/*padding : 20px 30px 40px 50px;*/
+			/*각 순서대로 top, right, bottom. left*/
+			/*1번, 2번 모두 같은 결과값을 가진다.*/
+		}
+	</style>
+	</head>
+	<body>
+		<h3>서울동물원 소개</h3>
+		<p id='padding1'>서울동물원은 동&middot;식물원 2,420천m&#178; 내 29개 동물사 332종 2,700수를 통하여 동물원의 기능인 전시, 보전, 교육, 연구에 힘쓰고 있습니다.</p>
+		<br>
+		<p id='padding2'>서울동물원은 동&middot;식물원 2,420천m&#178; 내 29개 동물사 332종 2,700수를 통하여 동물원의 기능인 전시, 보전, 교육, 연구에 힘쓰고 있습니다.</p>
+	</body>
+</html>
