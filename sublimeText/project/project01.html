@@ -12,9 +12,9 @@
 		}
 		#page{
 			width: 995px;
-			height: 640px;
+			height: 700px;
 			margin: 0 auto;
-			border: solid 1px red;
+			border: solid 1px white;
 		}
 		header{
 			width: 995px;
@@ -40,6 +40,11 @@
 			height: 70px;
 			border: solid 2px lightgray;
 		}
+		nav ul{
+			float: left;
+			margin-left: 10px;
+			width: 600px;
+		}
 		#menubar{
 			height: 40px;
 			font-size: 20px;
@@ -57,11 +62,17 @@
 			margin:  10px 0 10px;
 			font-weight: bold;;
 		}
+		#weather{
+			float: right;
+			width: 300;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
 		section{
 			float: left;
 			width: 754px;
 			height: 150px;
-			margin-top: 10px;
+			margin: 10px 10px 20px 0;
 			border: solid 1px white;
 		}
 		#banner{
@@ -69,9 +80,9 @@
 		}
 		aside{
 			float: right;
-			margin-top: 20px;
-			width : 200;
-			height: 100;
+			margin-top: 10px;
+			width : 200px;
+			height: 150px;
 			border: solid 2px darkgray;
 			background-color: #f7f9fa;
 		}
@@ -88,6 +99,21 @@
 		}
 		#login_menu li{
 			display: inline;
+		}
+		#news{
+			margin-top: 20px;
+			margin-right: 10px;
+		}
+		footer{
+			border: solid 1px white;
+			width: 995px;
+			margin-top: 10px;
+			margin-left: 3px;
+		}
+		#footer_banner{
+			margin-top: 14px;
+			width: 995px;
+			height: 240px;
 		}
 	</style>
 </head>
@@ -114,9 +140,10 @@
 				<li class="black">뉴스</li>
 				<li class="black">증권</li>
 				<li class="black">부동산</li>
-			</ul>	
+			</ul>
+			<div id="weather"><img src="prj01/weather.png"></div>
 		</nav>
-
+		<div id="clear"></div>
 		<section>
 			<div id="banner"><img src="prj01/banner01.png"></div>
 		</section>
@@ -135,12 +162,15 @@
 			</ul>
 		</aside>
 		<div id="clear"></div>
+		<div id="news">
+			<img src="prj01/news.png">
+		</div>
 		<footer>
 			<div>
-				<img src="prj01/footer.png">
+				<img src="prj01/footer.png" id="footer_banner">
 			</div>
 		</footer>
 		<div id="clear"></div>
-	</div>
+		</div>
 </body>
 </html>
