@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        li{
+            list-style-type: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>웹 문서에 PDF 파일 삽입하기</h1>
+    <object width="900" height="800" data="product.pdf"></object>
+    <embed src="medias/spring.mp3" width="200" height="100">
+    <audio src="medias/spring.mp3" controls></audio>
+    <video src="medias/salad.mp4" controls width="700"></video>
+    <audio src="medias/spring.mp3" autoplay loop></audio>
+    <video src="medias/salad.mp4" width="700" controls autoplay muted loop></video><br>
+    <a href="../vscode/file/order.html" target="_blank">주문서 작성하기</a><br>
+    <a href="../vscode/file/order.html"><img src="../vscode/img/tangerines.jpg"></a>
+    <form action="">
+        <fieldset>
+            <legend>상품 선택</legend>
+        </fieldset>
+        <fieldset>
+            <legend>배송 정보</legend>
+        </fieldset>
+    </form>
+    <label>
+        아이디(6자 이상)<input type="text">
+    </label>
+    <br>
+    <label for="user-id">아이디(6자 이상)</label>
+    <input type="text" id="user-id">
+    <br><br>
+    <form>
+        <fieldset>
+            <label>아이디: <input type="text" id="user-id" size="10"></label>
+            <label>비밀번호: <input type="password" id="user-id" size="10"></label>
+            <input type="submit" value="로그인"><br>
+            <ul>
+                <li>
+                    <label for="user-name">이름</label>
+                    <input type="text" id="user-name">
+                </li>
+                <li>
+                    <label for="addr">배송 주소</label>
+                    <input type="text" id="addr">
+                </li>
+                <li>
+                    <label for="mail">이메일 주소</label>
+                    <input type="email" id="mail">
+                </li>
+                <li>
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>상품 선택</legend>
+            <p><b>주문할 상품을 선택해 주세요</b></p>
+            <label><input type="checkbox" value="s_3">선물용 3kg</label>
+            <label><input type="checkbox" value="s_5">선물용 5kg</label>
+            <label><input type="checkbox" value="f_3">가정용 3kg</label>
+            <label><input type="checkbox" value="f_5">가정용 5kg</label>
+            <p><b>포장 선택</b></p>
+            <label><input type="radio" name="gift" value="yes">선물 포장</label>
+            <label><input type="radio" name="gift" value="no">선물 포장 안함</label>
+        </fieldset>
+    </form>
+    <ul>
+        <li>
+            <label><input type="checkbox" value="s_3">선물용 3kg</label>
+            <input type="number" min="0" max="5">개 (최대 5개)
+        </li>
+        <li>
+            <label><input type="checkbox" value="s_5"></label>
+            <input type="number" min="0" max="3" value="1">개 (최대 3개)
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <label><input type="checkbox" value="f_3">가정용 3kg</label>
+            <input type="range" min="0" max="5">개(최대 5개)
+        </li>
+        <li>
+            <label><input type="checkbox" value="f_5">가정용 5kg</label>
+            <input type="range" min="0" max="3" value="1">개 (최대 3개)
+        </li>
+    </ul>
+    <br>
+    <h1>날짜 지정하기</h1>
+    <input type="date">
+    <input type="month">
+    <input type="week">
+    <h1>시간 지정하기</h1>
+    <input type="time">
+    <input type="datetime-local">
+    <div>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="취소하기">
+    </div>
+    <fieldset>
+        <label>아이디: <input type="text" id="user_id" size="10"></label>
+        <label>비밀번호: <input type="password" id="user_pw" size="10"></label>
+        <input type="image" src="../vscode/img/login.png" alt="로그인">
+    </fieldset>
+    <form>
+        <input type="button" value="공지창 열기" onclick="window.open('notice.html')">
+        <input type="file">
+    </form>
+    <form>
+        <input type="hidden" value="사이트를 통한 직접 로그인">
+        <label>아이디: <input type="text" id="user_id" size="10"></label>
+        <label>비밀번호: <input type="password" id="user_pw" size="10"></label>
+        <input type="submit" value="로그인">
+    </form>
+    <form>
+        <label for="user-name">이름</label>
+        <input type="text" id="user-name" autofocus  readonly>
+        <label for="phone">연락처</label>
+        <input type="tel" id="phone" placeholder="하이폰 빼고 입력해주세요.(12345678)" required> 
+        <br>
+        <label for="memo">메모</label>
+        <textarea id="memo" cols="40" rows="4"></textarea>
+        <br><br>
+        <select>
+            <option value="값1">내용1</option>
+            <option value="값2">내용2</option>
+        </select>
+        <input type="text" list="데이터 목록 id">
+        <datalist id="데이터 목록 id">
+            <option value="서버로 넘길 값1">선택 옵션1</option>
+            <option value="서버로 넘길 값2">선택 옵션2</option>
+        </datalist><br>
+        <button type="submit">submit</button>
+        <button type="reset">reset</button>
+        <button type="button">button</button>
+    </form>
+</body>
+</html>
