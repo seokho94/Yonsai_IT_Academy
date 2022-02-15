@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+            margin: 15px;
+            border: solid 4px;
+        }
+        #box1{
+            border-color: red;
+        }
+        #box2{
+            border-top-color: blue;
+            border-left-color: red;
+        }
+        #round{
+            border-radius: 25px;
+        }
+        #round2{
+            border-color: darkred;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        #circle{
+            border-radius: 50%;
+        }
+        h1{
+            padding-bottom: 5px;
+            border-bottom: 3px solid rgb(75, 70, 70);
+        }
+        p{
+            padding: 10px;
+            border: dotted 3px blue;
+        }
+        </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <br>
+    <h1>박스 모델</h1>
+    <p>박스모델 테스트</p>
+    <img src="../vscode/img/cat.jpg" id="round">
+    <img src="../vscode/img/cat.jpg" id="circle">
+    <br>
+    <div id="round2"></div>
+</body>
+</html>
