@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+         ul { list-style:none; }
+	 li {
+		 display:inline-block;
+		 margin:10px;
+	 }
+		li a {
+			padding: 5px 20px;
+			font-size: 14px;
+			color: blue;
+			text-decoration: none;
+		}
+        select{
+            width: 100px;
+            height: 30px;
+            text-align: right;
+        }
+    a[title^=us] {
+        background: url(img/us.png) no-repeat left center;
+    }
+    a[title^=ja] {
+        background: url(img/jp.png) no-repeat left center;
+    }
+    a[title^=chn]{
+        background: url(img/ch.png) no-repeat left center;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+		<li>외국어 서비스 : </li>
+		<li><a href="#" title="us-english">영어</a></li>
+		<li><a href="#" title="ja">일본어</a></li>
+		<li><a href="#" title="chn">중국어</a></li>
+	</ul>
+    <select name="language" id="">
+        <option><a href="#" title="us-english">영어</a></option>
+        <option><a href="#" title="ja">일본어</a></option>
+        <option><a href="#" title="chn">중국어</a></option>
+    </select>
+</body>
+</html>
