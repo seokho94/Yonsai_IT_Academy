@@ -15,7 +15,6 @@ ul{
     margin: 0 auto;
     width: 1200px;
 }
-
 /*헤더 영역*/
 header{
     width: 100%;
@@ -29,14 +28,17 @@ header{
     width: 250px;
     height: 100px;
     /* background-color: indigo; */
-    line-height: 100px;
+    line-height: 150px;
     padding-left: 20px;
+    background-image: url(../images/olympicLogo.png);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: top center;
 }
-
 #logo h1{
     font-family: 'Merienda', cursive;
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 200;
+    font-size: 20px;
     color: #fff;
     text-shadow: 0 -1px 0 #222;
 }
@@ -174,25 +176,40 @@ button:focus{
 }
 .tabContent{
     display: none;
-    padding: 20px 0 0;
+    padding: 10px 0 0;
     border-top: 1px solid #ddd;
 }
 #notice ul{
-    list-style: disc;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 #notice ul li{
-    font-size: 16px;
+    font-size: 15px;
     line-height: 2.5;
 }
-#gallery ul li{
-    display: inline;
+#notice > ul > li > span{
+    font-weight: bold;
+}
+#rankingInfo{
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 10px;
+    background: rgb(223, 222, 222);
+}
+#rankingInfo tr td{
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 17px;
+}
+#rankingInfo > th > img{
+    max-width: 100%;
 }
 .tabContent h2{
     display: none;
 }
 #tab1:checked ~ #notice,
-#tab2:checked ~ #gallery{
+#tab2:checked ~ #ranking{
     display: block;
 }
 /* 퀵 링크 영역 */
@@ -223,7 +240,9 @@ button:focus{
     line-height: 150px;
 }
 #quick-icon1{
-    background-image: url(../images/icon-1.jpg);
+    background-image: url(https://sports.news.naver.com/video?id=908171&t=152);
+    background-position: center;
+    background-size: 20%;
 }
 #quick-icon2{
     background-image: url(../images/icon-2.jpg);
@@ -242,6 +261,7 @@ footer{
     height: 100px;
     /* background-color: gray; */
     border-top: 2px solid #222;
+    margin-top: 40px;
 }
 #bottomMenu{
     width: 100%;

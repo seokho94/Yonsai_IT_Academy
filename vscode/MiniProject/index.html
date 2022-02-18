@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Jeju</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id="logImg"></div>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>Olympic Winter Games</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="topMenu">
+                    <li><a href="#">종목 안내 <span>▼</span></a>
+                        <ul>
+                            <li><a href="#">쇼트 트랙</a></li>
+                            <li><a href="#">스키 점프</a></li>
+                            <li><a href="#">피겨 스케이팅</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">경기 일정 <span>▼</span></a>
+                        <ul>
+                            <li><a href="#">예선 일정</a></li>
+                            <li><a href="#">준결승 일정</a></li>
+                            <li><a href="#">결승 일정</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">하이라이트</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="slideShow">
+            <div id="slides">
+                <img src="images/figure.png" alt="">
+                <img src="images/skijump.png" alt="">
+                <img src="images/hockey.png" alt="">
+                <button id="prev">&lang;</button>
+                <button id="next">&rang;</button>
+            </div>
+        </div>
+        <div id="contents">
+            <div id="tabMenu">
+                <input type="radio" id="tab1" name="tabs" checked>
+                <label for="tab1">일정</label>
+                <input type="radio" id="tab2" name="tabs">
+                <label for="tab2">순위</label>
+
+                <div id="notice" class="tabContent">
+                    <h2>일정 안내입니다.</h2>
+                    <ul>
+                        <li><span>02.18 Fri</span></li>
+                        <li><span>17:30 스피드 스케이팅</span> 남자 1000m</li>
+                        <li><span>02.19 Sat</span></li>
+                        <li><span>10:30 봅슬레이</span> 남자 4인승 런1</li>
+                        <li><span>12:05 봅슬레이</span> 남자 4인승 런2</li>
+                        <li><span>16:00 스피드 스케이팅</span> 남자 매스스타트 준결승</li>
+                        <li><span>16:45 스피드 스케이팅</span> 여자 매스스타트 준결승</li>
+                    </ul>
+                </div>
+                <div id="ranking" class="tabContent">
+                    <h2>순위 정보입니다.</h2>
+                    <table id="rankingInfo">
+                        <tr>
+                            <th>순위</th><th>국가</th><th>금</th><th>은</th><th>동</th><th>합계</th>
+                        </tr>
+                        <tr>
+                            <td>1</td><td>노르웨이</td><td>14</td><td>7</td><td>8</td><td>29</td>
+                        </tr>
+                        <tr>
+                            <td>2</td><td>독일</td><td>10</td><td>7</td><td>5</td><td>22</td>
+                        </tr>
+                        <tr>
+                            <td>3</td><td>미국</td><td>8</td><td>8</td><td>5</td><td>13</td>
+                        </tr>
+                        <tr>
+                            <td>14</td><td>대한민국</td><td>2</td><td>4</td><td>1</td><td>7</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="links">
+                <ul>
+                    <li>
+                        <a href="https://sports.news.naver.com/beijing2022/vod/index?id=908171&category=beijing2022&gameId=2022STKW1500MFNL&date=20220216&listType=total">
+                            <span id="quick-icon1"></span>
+                            <p>평화기행</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span id="quick-icon2"></span>
+                            <p>힐링 워크샵</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span id="quick-icon3"></span>
+                            <p>문의하기</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <div id="bottomMenu">
+                <ul>
+                    <li><a href="#">회사 소개</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">여행약관</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+                <div id="sns">
+                    <ul>
+                        <li><a href="#"><img src="images/sns-1.png"></a></li>
+                        <li><a href="#"><img src="images/sns-2.png"></a></li>
+                        <li><a href="#"><img src="images/sns-3.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="company">
+                <p>제주특별자치도 ***동 ***로 *** (대표전화) 123-456-7890</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/slideshow.js"></script>
+</body>
+</html>
