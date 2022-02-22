@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>팩토리얼 계산하기</title>
+	<style>
+		body {
+			padding-top:20px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<h1>while문을 사용한 팩토리얼 계산</h1>
+
+	<script>
+			var n = prompt("숫자를 입력해주세요.");
+			var result = "";
+
+			if(n!==null){
+				var fac = 1;
+				var i=n;
+				result = n + "! = ";
+				while(0<i){
+					fac*=i;
+					if(i!==n) result +=" X " + i;
+					else result = result + i;
+					i--;
+				}
+				result = result + " = " +fac;
+			}
+			else{
+				result = "잘못된 값입니다."
+			}
+			document.write(result);
+	</script>
+</body>
+</html>
