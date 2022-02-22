@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addNumber(){
+            var a, b;
+            var count = 3;
+            while(a/1 != a) {
+                a = prompt("숫자 A를 입력해주세요. 남은 횟수 : " + count);
+                count--;
+                if(count<1) break;
+            }
+            count = 3;
+            while(b/1 != b) {
+                b = prompt("숫자 B를 입력해주세요. 남은 횟수 : " + count);
+                count--;
+                if(count<1) break;
+            }
+            if((a/1!=a) || (b/1!=b)){
+                alert("새로고침 후 다시 입력해주세요.")
+            }
+            else{
+                var sum = parseInt(a) + parseInt(b);
+                alert(sum);
+            }
+        }
+        addNumber();
+    </script>
+</body>
+</html>

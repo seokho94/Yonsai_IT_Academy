@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        body p {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>N 팩토리얼!</h1>
+    <script>
+        var n = prompt("숫자를 입력해주세요.");
+        var result = "";
+
+        if(n!==null){
+            var facn = 1;
+            var i = n;
+
+            result = n + "! = ";
+
+            if(n/1==n && n%1==0){
+                while(i>0){
+                    facn*=i;
+                    if(i==n) result+=i;
+                    else result = result + " X " + i;
+                    i--;
+                }
+
+                result = result + " = " + facn;
+                if(facn == 1) result = "1! = 1";
+                document.write("<p>"+result);
+
+            }
+            else{
+                alert("정수가 아닙니다.");
+                document.write("<p>"+"F5를 눌러 새로고침 해주세요.");
+            }
+        }
+        else{
+            alert("입력된 숫자가 없습니다.");
+            document.write("<p>"+"F5를 눌러 새로고침 해주세요.");
+        }
+    </script>
+</body>
+</html>
