@@ -48,7 +48,6 @@
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth; } }
-
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -9785,6 +9784,100 @@ a {
     display: inline-block;
     padding: 10px; }
 
+  /*팀프로젝트 css*/
+  .clear{
+    clear: both;
+  }
+  .sec-4{
+    background: #f3f2f5;
+    padding: 0 0 7rem;
+  }
+  #sec_nav{
+    background-color: #000;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 14px;
+    margin-bottom: 20px;
+  }
+
+  #sec_nav input[type="radio"]{
+    display: none;
+  }
+  #sec_nav label>a{
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+  #sec_nav label>a:hover{
+    color:#ebebeb;
+    cursor: pointer;
+  }
+  #sec_nav input:checked + label>a{
+    color: #ebebeb;
+    text-decoration: underline;
+  }
+  
+  #Audi_intro_box{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  #Audi_intro_box h3{
+    text-align: left;
+    font-weight: bold;
+  }
+  #Audi_intro_box p{
+    color: #41464b;
+    text-align: left;
+    line-height: 2;
+    font-size: 15px;
+  }
+  
+  #Audi_news_box{
+    display: block;
+    width: 66%;
+    min-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  #Audi_news_box{
+    text-align: left;
+    display: block;
+  }
+  #Audi_news_box h2{
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  #Audi_news_box img{
+    margin-right: 10px;
+    margin-bottom: 80px;
+  }
+  #Audi_news_box h4{
+    line-height: 110%;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  #Audi_news_box p{
+    color: #000;
+    font-size: 16px;
+  }
+
+  #Audi_news_box a{
+    font-size: 1.5rem;
+    display: block;
+    float: right;
+  }
+
+
+  
+ 
+
+
 .site-footer {
   padding-top: 70px;
   padding-bottom: 30px;
@@ -9842,69 +9935,3 @@ a {
       content: "";
       height: 1px;
       background: #d3d8dc; }
-      .sec-4{
-        background: #f3f2f5;
-      }
-      .intro_logo{
-        position: relative;
-        display: block;
-      }
-      .intro_logo span{
-        font-weight: bold;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 50px;
-      }
-      .left_list p{
-        position: relative;
-        display: inline-block;
-        margin-left: 20px;
-        font-size: 20px;
-      }
-      .right_list p{
-        margin-left: 20px;
-        font-size: 20px;
-      }
-      .intro_logo ul{
-        list-style: none;
-      }
-      .intro_logo li{
-        font-size: 40px;
-      }
-      .left_list{
-        padding-right: 500px;
-        margin-bottom: 120px;
-        color: #000;
-      }
-      .left_list ul {
-        position: absolute;
-        display: inline-block;
-        top: 10px;
-        margin-left: 40px;
-      }
-      .left_list li {
-        font-size: 20px;
-      }
-      .right_list{
-        padding-left: 500px;
-        margin-bottom: 120px;
-        color: #727175;
-      }
-      .right_list ul {
-        position: absolute;
-        display: inline-block;
-        right: 480px;
-      }
-      .left_img{
-        padding-left: 20px;
-      }
-      .right_img{
-        padding-right: 20px;
-      }
-
-      /* #introSideMenu{
-        position: absolute;
-        left: 240px;
-        width: 240px;
-        height: 200px;
-        border: 1px solid red;
-      } */
