@@ -9807,10 +9807,11 @@ a {
   }
   #sec_nav label>a{
     color: gray;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     padding-left: 20px;
     padding-right: 10px;
+    margin-right: 24px;
   }
   #sec_nav label>a:hover{
     color:#ebebeb;
@@ -9897,7 +9898,10 @@ a {
     font-weight: bold;
     margin-bottom: 20px;
   }
-
+  #Audi_find_box p{
+    color: #000;
+    font-size: 14px;
+  }
   #network input[type="checkbox"]{
       display: none;
   }
@@ -9917,12 +9921,12 @@ a {
   }
 
   #network ul{
+    margin-bottom: 0;
     list-style-type: none;
     background-color: #EBEBEB;
     border-bottom: 1px solid gray;
     padding: 24px 0 24px 24px;
     line-height: 26px;
-    /* display: none; */
   }
 
   #network li {
@@ -9935,6 +9939,27 @@ a {
     font-weight: bold;
   }
 
+  #network label:hover{
+    background-color: #e4e4e4;
+  }
+  #network a:hover{
+    color: red;
+    cursor: pointer;
+  }
+  #network input:checked + label{
+    background-color: #d4d4d4;
+  }
+  .networkContents{
+    display: none;
+  }
+  #net1:checked ~ #seoul,
+  #net2:checked ~ #gyung_gi,
+  #net3:checked ~ #chung_cheong,
+  #net4:checked ~ #jeon_nam,
+  #net5:checked ~ #kyuong_buk{
+    display: block;
+  }
+  
 
  
 
