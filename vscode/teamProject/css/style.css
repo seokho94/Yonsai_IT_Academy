@@ -9843,10 +9843,7 @@ a {
     min-width: 700px;
     margin: 0 auto;
     overflow: hidden;
-  }
-  #Audi_news_box{
     text-align: left;
-    display: block;
   }
   #Audi_news_box h2{
     font-weight: bold;
@@ -9873,8 +9870,30 @@ a {
     float: right;
   }
 
+  #Audi_info_box{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  #Audi_info_box h3{
+    text-align: left;
+    font-weight: bold;
+  }
+  #Audi_info_box p{
+    color: #41464b;
+    text-align: left;
+    line-height: 2;
+    font-size: 15px;
+  }
 
-  
+  #Audi_find_box{
+    display: flex;
+    flex-direction: column;
+  }
+  #network input[type="checkbox"]{
+      display: none;
+  }
+
  
 
 
