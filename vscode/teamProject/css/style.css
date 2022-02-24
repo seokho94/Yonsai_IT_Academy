@@ -9925,6 +9925,16 @@ a {
     /* display: none; */
   }
 
+  #network li {
+    color:red;
+    font-weight: bold;
+  }
+
+  #network li > a{
+    color: #000;
+    font-weight: bold;
+  }
+
 
  
 
