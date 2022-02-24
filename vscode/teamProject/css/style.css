@@ -9919,6 +9919,9 @@ a {
   #network ul{
     list-style-type: none;
     background-color: #EBEBEB;
+    border-bottom: 1px solid gray;
+    padding: 24px 0 24px 24px;
+    line-height: 26px;
     /* display: none; */
   }
 
