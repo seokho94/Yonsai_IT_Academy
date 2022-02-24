@@ -9885,13 +9885,40 @@ a {
     line-height: 2;
     font-size: 15px;
   }
-
-  #Audi_find_box{
-    display: flex;
-    flex-direction: column;
+  #Audi_find_box {
+    display: block;
+    width: 66%;
+    min-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: left;
   }
+  #Audi_find_box h2{
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
   #network input[type="checkbox"]{
       display: none;
+  }
+  #network label {
+    display: block;
+    height: 60px;
+    border-bottom: 1px solid gray;
+    line-height: 60px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    color: #000;
+  }
+  #network span{
+    float: right;
+    margin-right: 20px;
+  }
+
+  #network ul{
+    list-style-type: none;
+    background-color: #EBEBEB;
   }
 
  
