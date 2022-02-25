@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			font-family: '돋움';
+			font-size: 14px;
+			color: #444444;
+		}
+		li{
+			list-style-type: none;
+		}
+		.clear{
+			clear: both;
+		}
+		header{
+			/*background-color: darkgoldenrod;*/
+			width: 1200px;
+			height: 120px;
+			margin: 0 auto;
+			/*border: solid 1px red;*/
+		}
+		#logo{
+			float: left;
+			margin: 15px 10px 10px 30px;
+		}
+		#menus{
+			float: right;
+		}
+		#top_menu{
+			float: right;
+			margin: 40px 4px 0 0;
+		}
+		#top_menu li{
+			font-weight: bold;
+			display: inline;
+			padding: 4px;
+			border-right: dotted 1px darkgray;
+		}
+		#main_menu{
+			margin-top: 80px;
+			font-family: fantasy;
+			font-size: 24px;
+			color: white;
+			/*border: solid 1px red;*/
+			background-color: black;
+		}
+		#main_menu li{
+			display: inline;
+			margin-left: 60px;
+			margin-right: 40px;
+		}
+		#main_img{
+			width: 100%;
+			height: 281px;
+			background-image: url('img/main_img02.png');
+			background-repeat: no-repeat;
+			background-position: top center;
+			margin-top: 20px;
+		}
+		#contents{
+			width: 1200px;
+			margin: 0 auto;
+		}
+		#sub_menu{
+			width: 234px;
+			float: left;
+			margin-top: 25px;
+			border: solid 0.5px #dcdcdc;
+		}
+		#sub_menu h3{
+			font-size: 18px;
+			color: #5df0c0;
+			padding: 12px;
+			background-color: #516e7f;
+		}
+		#sub_menu li{
+			padding: 10px;
+			border-bottom: dotted 1px #cccccc;
+		}
+		#main_contents{
+			width: 940px;
+			float: right;
+			margin-top: 25px;
+			/*border: solid 1px #dcdcdc;*/
+		}
+		#main_contents h3{
+			font-size: 30px;
+			line-height: 180%;
+		}
+		#main_contents p{
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		#main_contents #figure01{
+			margin-top: 30px;
+			text-align: left;
+		}
+		#main_contents #figure02{
+			margin-top: 30px;
+			text-align: left;
+		}
+		footer{
+			width: 100%;
+			height: 150px;
+			margin-top: 30px;
+			background-color: #f2f3f3;
+		}
+		#footer_box{
+			width: 1200px;
+			height: 150px;
+			margin:  0 auto;
+			/*border: solid 1px green;*/
+		}
+		#footer_logo{
+			float: left;
+			margin: 8px 0 0 20px;
+			/*border: solid 1px red;*/
+		}
+		#address{
+			float: right;
+			margin: 50px 30px 0 0;
+			color: black;
+			border: solid 1px rd;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<div id="logo">
+			<img src="img/fork.png">
+		</div>
+		<nav id="menus">
+			<ul id="top_menu">
+				<li>로그인</li>
+				<li>회원가입</li>
+				<li>아이디&#183;비밀번호 찾기</li>
+			</ul>
+			<ul id="main_menu">
+				<li>Breakfast</li>
+				<li>Lunch</li>
+				<li>Dinner</li>
+				<li>Dessert</li>
+				<li>Bar</li>
+			</ul>
+		</nav>
+	</header>
+	<section id="main_img">
+	</section>
+	<section id="contents">
+		<div>
+			<nav id="sub_menu">
+				<ul>
+					<h3>Lunch</h3>
+					<li>국밥</li>
+					<li>롯데리아</li>
+					<li>김밥나라</li>
+					<li>디저트</li>
+					<li>카페</li>
+				</ul>
+			</nav>
+			<div id="main_contents">
+				<h3>국밥</h3><br>
+				<h2>순대국</h2>
+				<div id="figure01">
+					<img src="img/songja.jpg"> &nbsp;
+					<img src="img/songja_map.jpg">
+				</div>
+				<p>[송자네순대국] 주소 : 수원시 장안구 영화로 26번길 18</p><br>
+				<h2>설렁탕</h2>
+				<div id="figure02">
+					<img src="img/yejeon.jpg"> &nbsp;
+					<img src="img/yejeon_map.jpg">
+				</div>
+				<p>[예전각] 주소 : 수원시 장안구 장안로 54 칠공빌딩 1층</p>
+			</div>
+		</div>
+	</section>
+	<div class="clear"></div>
+	<footer>
+		<div id="footer_box">
+			<div id="footer_logo">
+				<img src="img/footer_logo.png">
+			</div>
+			<ul id="address">
+				<li>서울시 강남구 삼성동 1234 우:123-1234</li>
+				<li>TEL:031-123-1234 Email : <a href="http://seokho.dothome.co.kr/">seokho.dothome.co.kr</a></li>
+				<li>COPYRIGHT (C) 루바토 ALL RIGHTS RESERVED</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

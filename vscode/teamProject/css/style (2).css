@@ -13,7 +13,6 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -49,6 +48,7 @@
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth; } }
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);
@@ -8662,18 +8662,20 @@ textarea.form-control-lg {
         padding: 10px 15px;
         display: inline-block;
         text-decoration: none !important;
-        color: rgba(255, 255, 255, 0.7); }
+        color: rgba(255, 255, 255, 0.7);
+       }
         .site-nav .site-navigation .site-menu > li > a:hover {
           color: #fff; }
       .site-nav .site-navigation .site-menu > li.cta-button a {
         padding: 6px 20px;
-        border: 2px solid rgba(255, 255, 255, 0.1);
+        /* border: 2px solid rgba(255, 255, 255, 0.1); */
         color: #fff;
         border-radius: 30px; }
         .site-nav .site-navigation .site-menu > li.cta-button a:hover {
           color: #000;
           background: #fc5404;
-          border-color: #fc5404; }
+          border-color: #fc5404; 
+        }
       .site-nav .site-navigation .site-menu > li.active > a {
         color: #fff; }
     .site-nav .site-navigation .site-menu .has-children {
@@ -8698,12 +8700,12 @@ textarea.form-control-lg {
         z-index: 999;
         position: absolute;
         text-align: left;
-        -webkit-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
-        box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+        /* -webkit-box-shadow: 0 2px 10px -2px rgba(225, 225, 225, 0.8); */
+        /* box-shadow: 0 2px 10px -2px rgba(225, 225, 225, 0.8); */
         padding: 20px 0;
         margin-top: 20px;
         margin-left: 0px;
-        background: #fff;
+        background: #000;
         -webkit-transition: 0.2s 0s;
         -o-transition: 0.2s 0s;
         transition: 0.2s 0s; }
@@ -8721,8 +8723,8 @@ textarea.form-control-lg {
             pointer-events: none; }
           .site-nav .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
             display: none;
-            border-color: rgba(136, 183, 213, 0);
-            border-bottom-color: #fff;
+            /* border-color: rgba(136, 183, 213, 0); */
+            /* border-bottom-color: #fff; */
             border-width: 10px;
             margin-left: -10px; }
         .site-nav .site-navigation .site-menu .has-children .dropdown a {
@@ -8732,7 +8734,7 @@ textarea.form-control-lg {
           -webkit-transition: 0s all;
           -o-transition: 0s all;
           transition: 0s all;
-          color: #000; }
+          color: #fff; }
         .site-nav .site-navigation .site-menu .has-children .dropdown .active a {
           color: #fff !important; }
         .site-nav .site-navigation .site-menu .has-children .dropdown > li {
@@ -8744,7 +8746,10 @@ textarea.form-control-lg {
             padding: 5px 20px;
             display: block; }
             .site-nav .site-navigation .site-menu .has-children .dropdown > li > a:hover {
-              color: #fc5404; }
+              color: #fc5404;
+              /* color: #000;
+              background: linear-gradient(to bottom,#000, white 50%, #000);  */
+            }
           .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > a:before {
             content: "\e315";
             right: 20px; }
@@ -8752,7 +8757,10 @@ textarea.form-control-lg {
             left: 100%;
             top: 0; }
             .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown li a:hover, .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children > ul li a:hover {
-              color: #fc5404; }
+              color: #fc5404;
+              /* color:#000;
+              background: linear-gradient(to bottom,#000, white 50%, #000); */
+             }
           .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a, .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a, .site-nav .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a {
             color: #fc5404; }
       .site-nav .site-navigation .site-menu .has-children:hover > a, .site-nav .site-navigation .site-menu .has-children:focus > a, .site-nav .site-navigation .site-menu .has-children:active > a {
@@ -9041,7 +9049,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, .logo {
   font-family: "Montserrat", sans-serif; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  color: #000; }
+  color:rgba(#fff, 0.5); }
 
 a {
   -webkit-transition: .3s all ease;
@@ -9093,7 +9101,7 @@ a {
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    /* background: rgba(0, 0, 0, 0.6); */
     z-index: 1; }
   .hero-2 > .container {
     position: relative;
@@ -9120,7 +9128,7 @@ a {
     .hero-2 .intro-desc p {
       color: rgba(255, 255, 255, 0.8); }
 
-.play-vid .play {
+/* .play-vid .play {
   display: inline-block;
   width: 80px;
   height: 80px;
@@ -9137,7 +9145,7 @@ a {
     color: #fff;
     font-size: 18px; }
   .play-vid .play:hover {
-    border: 1px solid rgba(255, 255, 255, 0.7); }
+    border: 1px solid rgba(255, 255, 255, 0.7); } */
 
 .line {
   width: 50px;
@@ -9785,203 +9793,210 @@ a {
     display: inline-block;
     padding: 10px; }
 
-  /*팀프로젝트 css*/
-  .clear{
-    clear: both;
-  }
-  .sec-4{
-    background: #f3f2f5;
-    padding: 0 0 7rem;
-    min-width: 730px;
-  }
-  #sec_nav{
-    background-color: #000;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 14px;
-    margin-bottom: 20px;
-  }
+/*팀프로젝트 css*/
+.clear{
+  clear: both;
+}
+.sec-4{
+  background: #f3f2f5;
+  padding: 0 0 7rem;
+  min-width: 730px;
+}
+#sec_nav{
+  background-color: #000;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 14px;
+  margin-bottom: 20px;
+}
 
-  #sec_nav input[type="radio"]{
+#sec_nav input[type="radio"]{
+  display: none;
+}
+#sec_nav label>a{
+  color: gray;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: 24px;
+}
+#sec_nav label>a:hover{
+  color:#ebebeb;
+  cursor: pointer;
+}
+#sec_nav input:checked + label>a{
+  color: #ebebeb;
+  text-decoration: underline;
+}
+
+.tabContent{
+  min-width: 750px;
+  overflow: hidden;
+}
+
+#Audi_intro_box{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#Audi_intro_box h3{
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#Audi_intro_box p{
+  color: #41464b;
+  text-align: left;
+  line-height: 2;
+  font-size: 15px;
+}
+
+#Audi_news_box{
+  display: block;
+  width: 66%;
+  min-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+#Audi_news_box h2{
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#Audi_news_box img{
+  margin-right: 10px;
+  margin-bottom: 80px;
+}
+#Audi_news_box h4{
+  color: #000;
+  line-height: 110%;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#Audi_news_box p{
+  color: #000;
+  font-size: 16px;
+}
+
+#Audi_news_box a{
+  font-size: 1.5rem;
+  display: block;
+  float: right;
+}
+
+#Audi_info_box{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+#Audi_info_box h3{
+  color: #000;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#Audi_info_box p{
+  color: #41464b;
+  text-align: left;
+  line-height: 2;
+  font-size: 15px;
+}
+#Audi_find_box {
+  display: block;
+  width: 66%;
+  min-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+#Audi_find_box h2{
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#Audi_find_box p{
+  color: #000;
+  font-size: 14px;
+}
+#network input[type="checkbox"]{
     display: none;
-  }
-  #sec_nav label>a{
-    color: gray;
-    font-size: 14px;
-    font-weight: bold;
-    padding-left: 20px;
-    padding-right: 10px;
-    margin-right: 24px;
-  }
-  #sec_nav label>a:hover{
-    color:#ebebeb;
-    cursor: pointer;
-  }
-  #sec_nav input:checked + label>a{
-    color: #ebebeb;
-    text-decoration: underline;
-  }
+}
+#network label {
+  display: block;
+  height: 60px;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  color: #000;
+}
+#network span{
+  float: right;
+  margin-right: 20px;
+}
 
-  .tabContent{
-    min-width: 750px;
-    overflow: hidden;
-  }
-  
-  #Audi_intro_box{
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-  }
-  #Audi_intro_box h3{
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #Audi_intro_box p{
-    color: #41464b;
-    text-align: left;
-    line-height: 2;
-    font-size: 15px;
-  }
-  
-  #Audi_news_box{
-    display: block;
-    width: 66%;
-    min-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: left;
-  }
-  #Audi_news_box h2{
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #Audi_news_box img{
-    margin-right: 10px;
-    margin-bottom: 80px;
-  }
-  #Audi_news_box h4{
-    line-height: 110%;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+#network ul{
+  margin-bottom: 0;
+  list-style-type: none;
+  background-color: #EBEBEB;
+  border-bottom: 1px solid gray;
+  padding: 24px 0 24px 24px;
+  line-height: 26px;
+}
 
-  #Audi_news_box p{
-    color: #000;
-    font-size: 16px;
-  }
+#network li {
+  color:red;
+  font-weight: bold;
+}
 
-  #Audi_news_box a{
-    font-size: 1.5rem;
-    display: block;
-    float: right;
-  }
+#network li > a{
+  color: #000;
+  font-weight: bold;
+}
 
-  #Audi_info_box{
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-  }
-  #Audi_info_box h3{
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #Audi_info_box p{
-    color: #41464b;
-    text-align: left;
-    line-height: 2;
-    font-size: 15px;
-  }
-  #Audi_find_box {
-    display: block;
-    width: 66%;
-    min-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: left;
-  }
-  #Audi_find_box h2{
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #Audi_find_box p{
-    color: #000;
-    font-size: 14px;
-  }
-  #network input[type="checkbox"]{
-      display: none;
-  }
-  #network label {
-    display: block;
-    height: 60px;
-    border-bottom: 1px solid gray;
-    line-height: 60px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    font-weight: bold;
-    color: #000;
-  }
-  #network span{
-    float: right;
-    margin-right: 20px;
-  }
-
-  #network ul{
-    margin-bottom: 0;
-    list-style-type: none;
-    background-color: #EBEBEB;
-    border-bottom: 1px solid gray;
-    padding: 24px 0 24px 24px;
-    line-height: 26px;
-  }
-
-  #network li {
-    color:red;
-    font-weight: bold;
-  }
-
-  #network li > a{
-    color: #000;
-    font-weight: bold;
-  }
-
-  #network label:hover{
-    background-color: #e4e4e4;
-  }
-  #network a:hover{
-    color: red;
-    cursor: pointer;
-  }
-  #network input:checked + label{
-    background-color: #d4d4d4;
-  }
-  .networkContents{
-    display: none;
-  }
-  #net1:checked ~ #seoul,
-  #net2:checked ~ #gyung_gi,
-  #net3:checked ~ #chung_cheong,
-  #net4:checked ~ #jeon_nam,
-  #net5:checked ~ #kyuong_buk{
-    display: block;
-  }
-  
-
- 
+#network label:hover{
+  background-color: #e4e4e4;
+}
+#network a:hover{
+  color: red;
+  cursor: pointer;
+}
+#network input:checked + label{
+  background-color: #d4d4d4;
+}
+.networkContents{
+  display: none;
+}
+#net1:checked ~ #seoul,
+#net2:checked ~ #gyung_gi,
+#net3:checked ~ #chung_cheong,
+#net4:checked ~ #jeon_nam,
+#net5:checked ~ #kyuong_buk{
+  display: block;
+}
 
 
-.site-footer {
+.site-footer { 
+  background-color: #000;
   padding-top: 70px;
   padding-bottom: 30px;
-  font-size: 14px; }
+  font-size: 14px; 
+ }
   @media (max-width: 767.98px) {
     .site-footer {
       padding-top: 30px; } }
   .site-footer a {
-    color: #000; }
+    /* color: #000;  */
+    color:#fff;
+  } 
     .site-footer a:hover {
       color: #fc5404; }
   .site-footer .widget {
@@ -9996,10 +10011,10 @@ a {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: #f8f9fa;
+        background: #000;
         display: inline-block;
         position: relative;
-        color: black; }
+        color: white; }
         .site-footer .widget .social li a span {
           font-size: 20px;
           position: absolute;
@@ -10009,13 +10024,18 @@ a {
           -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
         .site-footer .widget .social li a:hover {
-          background-color: #fc5404;
-          color: #fff; }
+          /* background-color: #fc5404; */
+          background: radial-gradient(white, black);
+          /* color: #fff;  */
+          color: #000; 
+        }
     .site-footer .widget .links li {
       display: block;
       margin-bottom: 10px; }
       .site-footer .widget .links li a {
-        color: #000; }
+        /* color: #000;  */
+        color: #6f6f76;
+      }
         .site-footer .widget .links li a:hover {
           color: #fc5404; }
   .site-footer .copyright {

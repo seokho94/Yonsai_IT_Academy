@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style >
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style-type: none;
+		}
+		#page{
+			width: 995px;
+			height: 700px;
+			margin: 0 auto;
+			border: solid 1px white;
+		}
+		header{
+			width: 995px;
+			height: 150px;
+			margin-top: 10px;
+			border: solid 1px white;
+		}
+		header input{
+			border: solid 4px #04cf5c;
+			width: 400px;
+			height: 40px;
+		}
+
+		#logo{
+			float: left;
+		}
+		#serch{
+			float: left;
+			margin: 34px 40px 0 0;
+		}
+		nav{
+			width: 995px;
+			height: 70px;
+			border: solid 2px lightgray;
+		}
+		nav ul{
+			float: left;
+			margin-left: 10px;
+			width: 600px;
+		}
+		#menubar{
+			height: 40px;
+			font-size: 20px;
+			margin: 20px 0 20px 0;
+		}
+		#menubar li{
+			display: inline;
+		}
+		.green{
+			color: #04cf5c;
+			margin: 0 10px 0 10px;
+			font-weight: bold;
+		}
+		.black{
+			margin:  10px 0 10px;
+			font-weight: bold;;
+		}
+		#weather{
+			float: right;
+			width: 300;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
+		section{
+			float: left;
+			width: 754px;
+			height: 150px;
+			margin: 10px 10px 20px 0;
+			border: solid 1px white;
+		}
+		#banner{
+			margin-top: 5px;
+		}
+		aside{
+			float: right;
+			margin-top: 10px;
+			width : 200px;
+			height: 150px;
+			border: solid 2px darkgray;
+			background-color: #f7f9fa;
+		}
+		#id{
+			width: 120px;
+			margin-right: 28px;
+		}
+		#pw{
+			width: 120px;
+			margin-right: 28px;
+		}
+		#login_menu{
+			padding-left: 80px;
+		}
+		#login_menu li{
+			display: inline;
+		}
+		#news{
+			margin-top: 20px;
+			margin-right: 10px;
+		}
+		footer{
+			border: solid 1px white;
+			width: 995px;
+			margin-top: 10px;
+			margin-left: 3px;
+		}
+		#footer_banner{
+			margin-top: 14px;
+			width: 995px;
+			height: 240px;
+		}
+	</style>
+</head>
+<body>
+	<div id="page">
+		<header>
+			<div id="logo">
+				<img src="prj01/naver.jpg">
+			</div>
+			<div id="serch">
+				<input type="text" id="serchbox">
+			</div>
+		</header>
+		<div id="clear"></div>
+		
+		<nav>
+			<ul id="menubar">
+				<li class="green">메일</li>
+				<li class="green">카페</li>
+				<li class="green">블로그</li>
+				<li class="green">쇼핑</li>
+				<li class="green">TV</li>
+				<li class="black">사전</li>
+				<li class="black">뉴스</li>
+				<li class="black">증권</li>
+				<li class="black">부동산</li>
+			</ul>
+			<div id="weather"><img src="prj01/weather.jpg"></div>
+		</nav>
+		<div id="clear"></div>
+		<section>
+			<div id="banner"><img src="prj01/banner01.jpg"></div>
+		</section>
+
+		<aside>
+			<div><h3>로그인</h3></div>
+			<div>
+				<ul id="login">
+					<li>아 이 디&nbsp; : <input type="text" id="id"></li>
+					<li>패스워드 : <input type="password" id="pw"></li>
+				</ul>
+			</div>
+			<ul id="login_menu">
+				<li>로그인</li>
+				<li>회원가입</li>
+			</ul>
+		</aside>
+		<div id="clear"></div>
+		<div id="news">
+			<img src="prj01/news.jpg">
+		</div>
+		<footer>
+			<div>
+				<img src="prj01/footer.jpg" id="footer_banner">
+			</div>
+		</footer>
+		<div id="clear"></div>
+		</div>
+</body>
+</html>
