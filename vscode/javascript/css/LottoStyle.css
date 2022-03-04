@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#result{
+    margin-top: 200px;
+    text-align: center;
+}
+
+#parContent{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.lottoBall {
+    margin: 10px 4px 10px 4px;
+}
