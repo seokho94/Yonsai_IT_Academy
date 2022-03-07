@@ -13,8 +13,13 @@
     text-align: center;
     border: 1px solid black;
 }
+
 #targetNumber{
     font-size: 40px;
+}
+
+#check_result{
+    font-size: 20px;
 }
 
 #inputData{
