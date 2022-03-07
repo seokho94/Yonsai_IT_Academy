@@ -5,8 +5,9 @@ var sendBtn = document.getElementById("sendData");
 var resetBtn = document.getElementById("resetData");
 var userChoice = document.getElementById("textData");
 
+var secreatNum = "???";
 var target = Math.floor(Math.random()*100)+1;;
-var result = "???";
+var result = secreatNum;
 checkNumber.textContent = '숫자를 입력해주세요.';
 
 setNumber(result);
@@ -16,7 +17,9 @@ resetBtn.onclick = resetNumber;
 function setNumber(str){
     unknown.textContent = str;
 }
+
 //Up & Down 알고리즘
+//sendNumber에서 값을 받아와 결과 출력
 function upNdown(number){
     userNumber = number;
     if(userNumber < target) {
@@ -37,7 +40,8 @@ function upNdown(number){
 function sendNumber() {
     console.log("sendNumber 실행");
     var userData = userChoice.value
-    upNdown(userData);
+    if(userData>100) checkNumber.textContent = '1부터 100까지의 값을 입력해주세요.';
+    else upNdown(userData);
     userChoice.value="";
 }
 
@@ -45,5 +49,6 @@ function sendNumber() {
 function resetNumber() {
     var random = Math.floor(Math.random()*100)+1;
     target =  random;
-    setNumber(target);
+    checkNumber.textContent = '숫자를 입력해주세요.';
+    setNumber(secreatNum);
 }
