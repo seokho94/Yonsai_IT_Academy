@@ -5,9 +5,9 @@ var sendBtn = document.getElementById("sendData");
 var resetBtn = document.getElementById("resetData");
 var userChoice = document.getElementById("textData");
 
-var secreatNum = "???";
+var secretNum = "???";
 var target = Math.floor(Math.random()*100)+1;;
-var result = secreatNum;
+var result = secretNum;
 checkNumber.textContent = '숫자를 입력해주세요.';
 
 setNumber(result);
@@ -50,5 +50,5 @@ function resetNumber() {
     var random = Math.floor(Math.random()*100)+1;
     target =  random;
     checkNumber.textContent = '숫자를 입력해주세요.';
-    setNumber(secreatNum);
+    setNumber(secretNum);
 }
