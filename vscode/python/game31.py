@@ -24,15 +24,15 @@ class Game31 :
 
         return number
 
-    def userTurn(currentNumber) :
-        your_number = '[참가자1] 숫자 몇 개를 부를 건가요? (1~3) : '
-        userNumber = check_number(your_number)
-        for count in range (userNumber) :
-            currentNumber+=1
-            if(currentNumber==31) :
-                break
-            else :
-                play_game(currentNumber) 
+    # def userTurn(currentNumber) :
+    #     your_number = '[참가자1] 숫자 몇 개를 부를 건가요? (1~3) : '
+    #     userNumber = check_number(your_number)
+    #     for count in range (userNumber) :
+    #         currentNumber+=1
+    #         if(currentNumber==31) :
+    #             break
+    #         # else :
+    #         #     # play_game(currentNumber) 
 
         return currentNumber
     
@@ -42,7 +42,7 @@ class Game31 :
             currentNumber+=1
             if(currentNumber==31) :
                 break
-            else :
-                play_game(currentNumber) 
+            # else :
+            #     # play_game(currentNumber) 
 
         return currentNumber
