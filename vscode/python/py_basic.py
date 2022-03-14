@@ -16,3 +16,11 @@ You need python
 
 print(multiline)
 print(multiline2)
+
+print("%20sjane" % 'test')
+print("%-20sjane" % 'test')
+
+print("%f" % 3.141592)
+print("%0.5f" % 3.141592)
+print("%0.4f" % 3.141592)
+print("%10.4f" % 3.141592)
