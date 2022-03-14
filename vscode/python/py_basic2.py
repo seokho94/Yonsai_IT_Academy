@@ -144,3 +144,10 @@ print(bool("1"))
 print(bool())
 print(bool([]))
 print(bool([1,2,3]))
+
+#swap
+#java, c#에서 쓰던 temp를 활용한 swap이 아님...
+arr = [1,2,3,4,5]
+print(arr)
+arr[0],arr[1] = arr[1], arr[0]
+print(arr)
