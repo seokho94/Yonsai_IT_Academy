@@ -1,8 +1,10 @@
 from cProfile import label
 from random import *
+import sys
 import tkinter as tk
 from tkinter import  Button, Label, messagebox as mb
 from tkinter import font
+from unittest import expectedFailure
 
 cunt =0
 com = ['','','']
@@ -36,11 +38,22 @@ def checkNum(arr) :
                 else : ball +=1
     return ball,strike
 
-def clickEvent():
+def checkData() :
+    try :
+        num = int(e.get())
+        if(num/100) >=1 and (num/100) <=9 :
+            clickEvent(str(num))
+        else :
+            mb.showinfo(title='입력 오류',message='3자리 숫자만 입력해주세요.')
+    except :
+        mb.showinfo(title='입력 오류',message='3자리 숫자만 입력해주세요.')
+        
+def clickEvent(num):
     global cunt
+    userNum = num
+                
     cunt += 1
     레이블2.config(text='남은 기회 : {}'.format(5-cunt))
-    userNum = e.get()
     lst = []
 
     for i in userNum:
@@ -62,11 +75,13 @@ def clickEvent():
             label.pack()
             레이블1.config(text=result)
             mb.showinfo(title='결과',message='승 리')
+            sys.exit()
         else :
             label = Label(게임화면, text=userNum+' | {}B {}S'.format(ball, strike),font=('Arial',15))
             label.pack()
             레이블1.config(text=result)
             mb.showinfo(title='결과',message='패 배')
+            sys.exit()
 
 레이블1 = tk.Label(master=게임화면,text= '???',font = ('Arial',30))
 레이블1.pack()
@@ -81,7 +96,7 @@ e = tk.Entry(master=게임화면,font=('Arial',16))
 e.pack()
 e.insert(0,'')
 
-버튼1 = tk.Button(master=게임화면,text='출력',font=('Arial',13),command=clickEvent)
+버튼1 = tk.Button(master=게임화면,text='출력',font=('Arial',13),command=checkData)
 버튼1.pack()
 
 게임화면.mainloop()
