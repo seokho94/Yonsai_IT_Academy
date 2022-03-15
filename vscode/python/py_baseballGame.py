@@ -31,7 +31,7 @@ for i in range(len(com)):
                     if com[i] != com[j]:
                         break
     result += str(com[i])
-
+print(result)
 #ball, strike 확인 함수
 #숫자와 자리수가 같다면 strike++
 #숫자는 같지만 자리수가 다르다면 ball++ 
