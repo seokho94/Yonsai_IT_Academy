@@ -64,12 +64,13 @@ print("c.first / c.second = {}".format(int(c.div())))
 
 class Family :
     lastname = "김"
-    
+
 print(Family.lastname)
 a = Family()
 b = Family()
 print(a.lastname)
 print(b.lastname)
+
 Family.lastname ="박"
 print(a.lastname)
 print(b.lastname)
@@ -78,3 +79,10 @@ if(id(Family.lastname)==id(a.lastname)) :
         print("Family.lastname == a.lastname == b.lastname")
 else :
     print("3개의 주소값이 다릅니다.")
+    
+class arr:
+    a = ["Seoul","Kyeonggi","Incheon","Daejeon","Deagu","Pusan"]
+srt01 = " "
+for i in arr.a:
+    srt01 = srt01 + i[0]
+print(srt01)
