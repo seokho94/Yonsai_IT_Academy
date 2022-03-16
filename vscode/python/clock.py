@@ -27,7 +27,7 @@ def start_time() :
     dateArr = infoDate.split(" ")
     day = chage_day[dateArr[3]]
     dateArr[3] = day
-    lable4.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
+    lable3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
     update_time()
 
 #시간 업데이트
@@ -69,21 +69,21 @@ def change_Date() :
     dateArr = infoDate.split(" ")
     day = chage_day[dateArr[3]]
     dateArr[3] = day
-    lable4.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
+    lable3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
 
         
 clock = tk.Tk()
 clock.title('Clock')
 clock.geometry('400x140')
 
-lable1 = tk.Label(master=clock, text='', font = ('Arial', 20))
+lable1 = tk.Label(master=clock, text='현재 시간', font = ('Arial', 20))
 lable1.pack()
 
 lable2 = tk.Label(master=clock, text=time.strftime('%H' + ':' + '%M' + ':' + '%S'), font=('Arial', 24))
 lable2.pack()
 
-lable4 = tk.Label(master=clock, text="", font=('Arial', 16))
-lable4.pack()
+lable3 = tk.Label(master=clock, text="", font=('Arial', 16))
+lable3.pack()
 
 start_time()
 
