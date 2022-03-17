@@ -21,13 +21,13 @@ def start_time() :
         change_Date()
     else :
         sign = change_sign(False)
-    lable2.config(text="{} : {} : {}".format(timeArr[0],timeArr[1],timeArr[2])+sign)
+    label2.config(text="{} : {} : {}".format(timeArr[0],timeArr[1],timeArr[2])+sign)
     infoDate = time.strftime('%Y %m %d %A')
     chage_day = {'Monday':'(월)', 'TuesDay':'(화)', 'Wednesday' : '(수)', 'Thursday' : '(목)', 'Friday' : '(금)', 'Saturday' : '(토)', 'Sunday' : '(일)'}
     dateArr = infoDate.split(" ")
     day = chage_day[dateArr[3]]
     dateArr[3] = day
-    lable3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
+    label3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
     update_time()
 
 #시간 업데이트
@@ -45,8 +45,8 @@ def update_time() :
         change_Date()
     else :
         sign = change_sign(False)
-    lable2.config(text="{} : {} : {}".format(timeArr[0],timeArr[1],timeArr[2])+sign)
-    lable2.after(500, update_time)
+    label2.config(text="{} : {} : {}".format(timeArr[0],timeArr[1],timeArr[2])+sign)
+    label2.after(100, update_time)
     #레이블 텍스트 값 변경
     
 #시간에 따라 Am/ Pm 변환
@@ -69,36 +69,59 @@ def change_Date() :
     dateArr = infoDate.split(" ")
     day = chage_day[dateArr[3]]
     dateArr[3] = day
-    lable3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
+    label3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
 
-def change_white() :
-    clock.config(bg='lightgrey')
-    lable1.config(bg='lightgrey')
-    lable2.config(bg='lightgrey')
-    lable3.config(bg='lightgrey')
-    lable1.config(bg='lightgrey')
-    lable2.config(bg='lightgrey')
-    lable3.config(bg='lightgrey')
-    lable4.config(bg='lightgrey')
-    bt_white.config(bg='lightgrey')
-    bt_black.config(bg='lightgrey')
+def change_default() :
+    clock.config(bg='#f0f0f0')
+    label1.config(bg='#f0f0f0')
+    label2.config(bg='#f0f0f0')
+    label3.config(bg='#f0f0f0')
+    label1.config(bg='#f0f0f0')
+    label2.config(bg='#f0f0f0')
+    label3.config(bg='#f0f0f0')
+    label4.config(bg='#f0f0f0')
+    bt_default.config(bg='#f0f0f0')
+    bt_white.config(bg='#f0f0f0')
+    bt_black.config(bg='#f0f0f0')
+    bt_default.config(fg='black')
     bt_white.config(fg='black')
     bt_black.config(fg='black')
-    lable1.config(fg='black')
-    lable2.config(fg='black')
-    lable3.config(fg='black')
+    label1.config(fg='black')
+    label2.config(fg='black')
+    label3.config(fg='black')
+
+def change_white() :
+    clock.config(bg='white')
+    label1.config(bg='white')
+    label2.config(bg='white')
+    label3.config(bg='white')
+    label1.config(bg='white')
+    label2.config(bg='white')
+    label3.config(bg='white')
+    label4.config(bg='white')
+    bt_default.config(bg='white')
+    bt_white.config(bg='white')
+    bt_black.config(bg='white')
+    bt_default.config(fg='black')
+    bt_white.config(fg='black')
+    bt_black.config(fg='black')
+    label1.config(fg='black')
+    label2.config(fg='black')
+    label3.config(fg='black')
     
 def change_black() :
     clock.config(bg='black')
-    lable1.config(bg='black')
-    lable2.config(bg='black')
-    lable3.config(bg='black')
-    lable4.config(bg='black')
-    bt_white.config(bg='grey')
-    bt_black.config(bg='grey')
-    lable1.config(fg='white')
-    lable2.config(fg='white')
-    lable3.config(fg='white')
+    label1.config(bg='black')
+    label2.config(bg='black')
+    label3.config(bg='black')
+    label4.config(bg='black')
+    bt_default.config(bg='black')
+    bt_white.config(bg='black')
+    bt_black.config(bg='black')
+    label1.config(fg='white')
+    label2.config(fg='white')
+    label3.config(fg='white')
+    bt_default.config(fg='white')
     bt_white.config(fg='white')
     bt_black.config(fg='white')
         
@@ -107,22 +130,25 @@ clock.title('Clock')
 clock.geometry('400x140')
 
 
-lable1 = tk.Label(master=clock, text='현재 시간', font = ('Arial', 20))
-lable1.pack()
+label1 = tk.Label(master=clock, text='현재 시간', font = ('Arial', 20))
+label1.pack()
 
-lable2 = tk.Label(master=clock, text=time.strftime('%H' + ':' + '%M' + ':' + '%S'), font=('Arial', 24))
-lable2.pack()
+label2 = tk.Label(master=clock, text=time.strftime('%H' + ':' + '%M' + ':' + '%S'), font=('Arial', 24))
+label2.pack()
 
-lable3 = tk.Label(master=clock, text="", font=('Arial', 16))
-lable3.pack()
+label3 = tk.Label(master=clock, text="", font=('Arial', 16))
+label3.pack()
 
-lable4 = tk.Label(master=clock, height="20")
-lable4.pack()
+label4 = tk.Label(master=clock, height="20")
+label4.pack()
 
-bt_white = tk.Button(master=lable4, text="White", font=('Arial', 12), command=change_white)
+bt_default = tk.Button(master=label4, text="Default", font=('Arial', 12), command=change_default)
+bt_default.pack(side='left')
+
+bt_white = tk.Button(master=label4, text="White", font=('Arial', 12), command=change_white)
 bt_white.pack(side='left')
 
-bt_black = tk.Button(master=lable4, text="Black", font=('Arial', 12), command=change_black)
+bt_black = tk.Button(master=label4, text="Black", font=('Arial', 12), command=change_black)
 bt_black.pack(side='left')
 
 start_time()
