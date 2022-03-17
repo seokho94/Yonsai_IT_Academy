@@ -71,10 +71,41 @@ def change_Date() :
     dateArr[3] = day
     lable3.config(text="{}년 {}월 {}일 {}".format(dateArr[0],dateArr[1],dateArr[2],dateArr[3]))
 
+def change_white() :
+    clock.config(bg='lightgrey')
+    lable1.config(bg='lightgrey')
+    lable2.config(bg='lightgrey')
+    lable3.config(bg='lightgrey')
+    lable1.config(bg='lightgrey')
+    lable2.config(bg='lightgrey')
+    lable3.config(bg='lightgrey')
+    lable4.config(bg='lightgrey')
+    bt_white.config(bg='lightgrey')
+    bt_black.config(bg='lightgrey')
+    bt_white.config(fg='black')
+    bt_black.config(fg='black')
+    lable1.config(fg='black')
+    lable2.config(fg='black')
+    lable3.config(fg='black')
+    
+def change_black() :
+    clock.config(bg='black')
+    lable1.config(bg='black')
+    lable2.config(bg='black')
+    lable3.config(bg='black')
+    lable4.config(bg='black')
+    bt_white.config(bg='grey')
+    bt_black.config(bg='grey')
+    lable1.config(fg='white')
+    lable2.config(fg='white')
+    lable3.config(fg='white')
+    bt_white.config(fg='white')
+    bt_black.config(fg='white')
         
 clock = tk.Tk()
 clock.title('Clock')
 clock.geometry('400x140')
+
 
 lable1 = tk.Label(master=clock, text='현재 시간', font = ('Arial', 20))
 lable1.pack()
@@ -84,6 +115,15 @@ lable2.pack()
 
 lable3 = tk.Label(master=clock, text="", font=('Arial', 16))
 lable3.pack()
+
+lable4 = tk.Label(master=clock, height="20")
+lable4.pack()
+
+bt_white = tk.Button(master=lable4, text="White", font=('Arial', 12), command=change_white)
+bt_white.pack(side='left')
+
+bt_black = tk.Button(master=lable4, text="Black", font=('Arial', 12), command=change_black)
+bt_black.pack(side='left')
 
 start_time()
 
