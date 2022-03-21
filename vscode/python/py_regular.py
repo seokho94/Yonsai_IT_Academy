@@ -109,7 +109,7 @@ p = re.compile('(blue|white|red)')
 print(p.sub('color', 'blue socks and red shoes',count=1))
 
 p = re.compile('(blue|white|red)')
-print(p.sub('color', 'blue socks and red shoes',count=-2))
+print(p.sub('color', 'blue socks and red shoes',count=-1))
 
 s = '<html><head><title>Title</title>'
 print(len(s))

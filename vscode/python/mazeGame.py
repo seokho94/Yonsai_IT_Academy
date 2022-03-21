@@ -158,16 +158,18 @@ def start_game() :
                 for j in range(len(map[0])) :
                         output = output + str(map[i][j]) + " "   
                 output += "\n"
+        output +=       map_list.get(map_number)
         label_display.config(text=output)
 
 #수정된 문자열을 받아와 Display에 출력 -> 이동과정을 표현해줌
 def update_map() :
-        global map
+        global map, map_list
         move = ""
         for i in range(len(map)) :
                 for j in range(len(map[0])) :
                         move = move + str(map[i][j]) + " "   
                 move += "\n"
+        move +=         map_list.get(map_number)
         label_display.config(text=move)
 
 #게임을 완료했을때 실행 -> 텍스트 수정 후 메시지박스 출력
@@ -263,7 +265,7 @@ def quit_game() :
         sys.exit()
 
 maze = tk.Tk()
-maze.title("Maze-Map : {}".format(map_list.get(map_number)))
+maze.title("Maze-Game")
 maze.geometry('440x520')
 maze.resizable(False,False)
 
