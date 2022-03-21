@@ -8,6 +8,7 @@ from turtle import left, title, width
 from unittest import result
 import sys
 import time
+import datetime
 
 #map size 16 *18 도착지점 인덱스 [15][17]
 map1 = [["●", "■", "□", "□", "□", "■", "□", "□", "□", "□", "■", "■", "■", "■", "■", "■"],
@@ -131,7 +132,10 @@ map
 output = ""
 x = int(0)
 y = int(0)
+startTime = time.time()
+endTime = int(0)
 gameStart = False
+
 
 #map_list에 map을 담아서 random함수로 호출 -> map에 값을 넘겨줌
 def start_game() :
@@ -142,7 +146,7 @@ def start_game() :
         y = int(0)
         gameStart = True
         if(map_list.get(map_number)=="map_1") :
-                map = map1
+                map = map1    
         elif(map_list.get(map_number)=="map_2") :
                 map = map2
         elif(map_list.get(map_number)=="map_3") :
@@ -157,9 +161,10 @@ def start_game() :
         for i in range(len(map)) :
                 for j in range(len(map[0])) :
                         output = output + str(map[i][j]) + " "   
+                if(i==len(map)-1): continue
                 output += "\n"
-        output +=       map_list.get(map_number)
         label_display.config(text=output)
+        label_subtitle.config(text=map_list.get(map_number))
 
 #수정된 문자열을 받아와 Display에 출력 -> 이동과정을 표현해줌
 def update_map() :
@@ -168,20 +173,25 @@ def update_map() :
         for i in range(len(map)) :
                 for j in range(len(map[0])) :
                         move = move + str(map[i][j]) + " "   
+                if(i==len(map)-1): continue
                 move += "\n"
-        move +=         map_list.get(map_number)
         label_display.config(text=move)
 
 #게임을 완료했을때 실행 -> 텍스트 수정 후 메시지박스 출력
 def escape_map() :
-        global map
+        global map, startTime, endTime
+        endTime = time.time()
         finish = ""
         for i in range(len(map)) :
                 for j in range(len(map[0])) :
                         finish = finish + str(map[i][j]) + " "   
+                if(i==len(map)-1): continue
                 finish += "\n"
         label_display.config(text=finish)
-        mb.showinfo(title="<Escape>", message="탈출했습니다!!")
+        sec = (endTime-startTime)
+        crtTime = datetime.timedelta(seconds = sec)
+        crtTime_list = str(crtTime).split(".")
+        mb.showinfo(title="<Escape>", message=crtTime_list[0]+"\n"+"탈출했습니다!!")
 
 #위쪽 버튼 클릭시 실행 : y값 1 감소, 리스트의 텍스트 수정 -> 캐릭터가 이동하는 효과
 #★을 만난다면 escape_map 실행
@@ -269,14 +279,14 @@ maze.title("Maze-Game")
 maze.geometry('440x520')
 maze.resizable(False,False)
 
-label_timeZone = tk.Label(master=maze)
-label_timeZone.pack()
+label_subtitle_zone = tk.Label(master=maze)
+label_subtitle_zone.pack()
 
-label_time_text = tk.Label(master=label_timeZone, text='Time', font=('Arial',16))
-label_time_text.pack(side='top')
+label_subtitle_text = tk.Label(master=label_subtitle_zone, text='Escape Maze', font=('Arial',16))
+label_subtitle_text.pack(side='top')
 
-label_time = tk.Label(master=label_timeZone, text="00:00:00", font=('Arial', 16))
-label_time.pack(side='top')
+label_subtitle = tk.Label(master=label_subtitle_zone, text="", font=('Arial', 16))
+label_subtitle.pack(side='top')
 
 label_StateZone = tk.Label(master=maze)
 label_StateZone.pack()
