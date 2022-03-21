@@ -129,7 +129,6 @@ clock = tk.Tk()
 clock.title('Clock')
 clock.geometry('400x140')
 
-
 label1 = tk.Label(master=clock, text='현재 시간', font = ('Arial', 20))
 label1.pack()
 

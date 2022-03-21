@@ -132,7 +132,7 @@ map
 output = ""
 x = int(0)
 y = int(0)
-startTime = time.time()
+startTime = int(0)
 endTime = int(0)
 gameStart = False
 
@@ -140,7 +140,8 @@ gameStart = False
 #map_list에 map을 담아서 random함수로 호출 -> map에 값을 넘겨줌
 def start_game() :
         global map_list, map_number, map
-        global output, gameStart, x,y
+        global output, gameStart, x,y, startTime
+        startTime = time.time()
         map_number = randint(1,6)
         x = int(0)
         y = int(0)
@@ -263,7 +264,9 @@ def move_right() :
 
 #게임 초기화
 def reset_game() :
-        global gameStart, output, map
+        global gameStart, output, map, endTime, startTime
+        startTime = int(0)
+        endTime = int(0)
         gameStart = False
         map[y][x] = "□"
         map[0][0] = "●"
