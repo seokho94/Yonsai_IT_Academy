@@ -248,7 +248,11 @@ def move_right() :
                         x+=1
                         map[y][x] = "●"
                         escape_map()
-
+def update_time() :
+        if(gameStart==True) :
+                startTime = time.time()
+                
+                
 
 def reset_game() :
         global gameStart, output, map
