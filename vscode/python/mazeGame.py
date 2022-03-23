@@ -4,11 +4,13 @@ from random import randint
 from re import X
 import tkinter as tk
 from tkinter import CENTER, font, messagebox as mb
-from turtle import left, title, width
+from turtle import Screen, left, onkeypress, right, title, width
 from unittest import result
 import sys
 import time
 import datetime
+import keyboard as kb
+from sympy import true
 
 #map size 16 *18 도착지점 인덱스 [15][17]
 map1 = [["●", "■", "□", "□", "□", "■", "□", "□", "□", "□", "■", "■", "■", "■", "■", "■"],
@@ -135,6 +137,7 @@ y = int(0)
 startTime = int(0)
 endTime = int(0)
 gameStart = False
+key = 0
 
 
 #map_list에 map을 담아서 random함수로 호출 -> map에 값을 넘겨줌
@@ -180,7 +183,7 @@ def update_map() :
 
 #게임을 완료했을때 실행 -> 텍스트 수정 후 메시지박스 출력
 def escape_map() :
-        global map, startTime, endTime
+        global map, startTime, endTime, gameStart
         endTime = time.time()
         finish = ""
         for i in range(len(map)) :
@@ -192,75 +195,80 @@ def escape_map() :
         sec = (endTime-startTime)
         crtTime = datetime.timedelta(seconds = sec)
         crtTime_list = str(crtTime).split(".")
+        gameStart=False
         mb.showinfo(title="<Escape>", message=crtTime_list[0]+"\n"+"탈출했습니다!!")
 
 #위쪽 버튼 클릭시 실행 : y값 1 감소, 리스트의 텍스트 수정 -> 캐릭터가 이동하는 효과
 #★을 만난다면 escape_map 실행
 def move_up() :
-        global map,x,y
-        if(y>0) :
-                if(map[y-1][x]=="□") :
-                        map[y][x] = "□"
-                        y-=1
-                        map[y][x] = "●"
-                        update_map()
+        global map,x,y,gameStart
+        if(gameStart):
+                if(y>0) :
+                        if(map[y-1][x]=="□") :
+                                map[y][x] = "□"
+                                y-=1
+                                map[y][x] = "●"
+                                update_map()
                         
-                elif(map[y-1][x]=="★") :
-                        map[y][x] = "□"
-                        y-=1
-                        map[y][x] = "●"
-                        escape_map()
+                        elif(map[y-1][x]=="★") :
+                                map[y][x] = "□"
+                                y-=1
+                                map[y][x] = "●"
+                                escape_map()
                         
 #아래쪽 버튼 클릭시 실행 : y값 1 증가, 리스트의 텍스트 수정 -> 캐릭터가 이동하는 효과
 #★을 만난다면 escape_map 실행
 def move_down() :
-        global map,x,y
-        if(y<17) :
-                if(map[y+1][x]=="□") :
-                        map[y][x] = "□"
-                        y+=1
-                        map[y][x] = "●"
-                        update_map()
+        global map,x,y,gameStart
+        if(gameStart):
+                if(y<17) :
+                        if(map[y+1][x]=="□") :
+                                map[y][x] = "□"
+                                y+=1
+                                map[y][x] = "●"
+                                update_map()
                         
-                elif(map[y+1][x]=="★") :
-                        map[y][x] = "□"
-                        y+=1
-                        map[y][x] = "●"
-                        escape_map()
+                        elif(map[y+1][x]=="★") :
+                                map[y][x] = "□"
+                                y+=1
+                                map[y][x] = "●"
+                                escape_map()
                         
 #왼쪽 버튼 클릭시 실행 : x값 1 감소, 리스트의 텍스트 수정 -> 캐릭터가 이동하는 효과
 #★을 만난다면 escape_map 실행              
 def move_left() :
-        global map,x,y
-        if(x>0) :
-                if(map[y][x-1]=="□") :
-                        map[y][x] = "□"
-                        x-=1
-                        map[y][x] = "●"
-                        update_map()
+        global map,x,y,gameStart
+        if(gameStart) :
+                if(x>0) :
+                        if(map[y][x-1]=="□") :
+                                map[y][x] = "□"
+                                x-=1
+                                map[y][x] = "●"
+                                update_map()
                         
-                elif(map[y][x-1]=="★") :
-                        map[y][x] = "□"
-                        x-=1
-                        map[y][x] = "●"
-                        escape_map()
+                        elif(map[y][x-1]=="★") :
+                                map[y][x] = "□"
+                                x-=1
+                                map[y][x] = "●"
+                                escape_map()
 
 #오른쪽 버튼 클릭시 실행 : x값 1 증가, 리스트의 텍스트 수정 -> 캐릭터가 이동하는 효과
 #★을 만난다면 escape_map 실행       
 def move_right() :
-        global map,x,y
-        if(x<15) :
-                if(map[y][x+1]=="□") :
-                        map[y][x] = "□"
-                        x+=1
-                        map[y][x] = "●"
-                        update_map()
+        global map,x,y,gameStart
+        if(gameStart) :
+                if(x<15) :
+                        if(map[y][x+1]=="□") :
+                                map[y][x] = "□"
+                                x+=1
+                                map[y][x] = "●"
+                                update_map()
                         
-                elif(map[y][x+1]=="★") :
-                        map[y][x] = "□"
-                        x+=1
-                        map[y][x] = "●"
-                        escape_map()            
+                        elif(map[y][x+1]=="★") :
+                                map[y][x] = "□"
+                                x+=1
+                                map[y][x] = "●"
+                                escape_map()            
 
 #게임 초기화
 def reset_game() :
@@ -275,9 +283,23 @@ def reset_game() :
         output = ""
         start_game()
 
+def key_down(e) :
+        global key
+        key = e.keycode
+        if(gameStart) :
+                if(key==38) :
+                        move_up()
+                elif(key==40) :
+                        move_down()
+                elif(key==37) :
+                        move_left()
+                elif(key==39) :
+                        move_right()
+
 #게임 종료
 def quit_game() :
         sys.exit()
+
 
 maze = tk.Tk()
 maze.title("Maze-Game")
@@ -320,5 +342,8 @@ bt_rightArrow.pack(side='right')
 bt_bottomArrow = tk.Button(master=maze, text="▼", font=('Arial',16), width=10, command=move_down)
 bt_bottomArrow.pack()
 
+
+
 start_game()
+maze.bind("<KeyPress>",key_down)
 maze.mainloop()
