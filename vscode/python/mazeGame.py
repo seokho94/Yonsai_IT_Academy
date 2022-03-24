@@ -304,7 +304,7 @@ def quit_game() :
 maze = tk.Tk()
 maze.title("Maze-Game")
 maze.geometry('440x520')
-maze.resizable(False,False)
+maze.resizable(True,True)
 
 label_subtitle_zone = tk.Label(master=maze)
 label_subtitle_zone.pack()
