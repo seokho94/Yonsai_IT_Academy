@@ -18,24 +18,35 @@ f = open('monica.txt', 'w', encoding = 'utf-8')
 for i in Line :
     monica += i + '\n'
 
-print(monica[:100])
+print(monica[:101])
+
 f = open('monica.txt', 'w', encoding = 'utf-8')
 f.write(monica)
 f.close()
 
+f = codecs.open('friends101.txt', 'r', encoding = 'UTF-8')
+script101 = f.read()
+
 char = re.compile(r'[A-Z][a-z]+:')
-a = [1,2,3,4,5,2,2]
-set(a)
+re.findall(char,script101)
+print(re.findall(char,script101))
+
 set(re.findall(char, script101))
 
 rachel = 'Rachel:'
 rachel = re.sub(':', '', rachel)
+print(rachel)
+
+print(re.findall(char,script101))
 y = set(re.findall(char, script101))
 z = list(y)
 character = []
 for i in z :
     character += [i[:-1]]
-    
+
+print("character 결과 값 ")  
+print(character)
+  
 character = [x[:-1] for x in list(set(re.findall(r'[A-Z][a-z]+: ',script101)))]
 re.findall(r'\([A-Za-z].+[a-z|\.]\)',script101)[:6]
 print(character)
@@ -45,7 +56,7 @@ f.read(100)
 f.seek(0)
 
 sentences = f.readlines()
-sentences[:3]
+print(sentences[:3])
 
 for i in sentences[:20] :
     if re.match(r'[A-Z][a-z]+:', i) :
