@@ -1,6 +1,7 @@
 import scipy as sp
 import numpy as np
 import pandas as pd
+import usecsv, os
 
 discount = .05
 cashflow = 100
@@ -83,3 +84,53 @@ d = np.array([[1,2,3,4,5],[2,3,4,5,6],[5,7,8,9,9]])
 d_list = [[1,2,3,4,5],[2,4,5,6,7],[5,7,8,9,9]]
 d[:2] = 0
 print(d)
+
+os.chdir('C:\\Users\\YONSAI\\Documents\\GitHub\\Yonsai_IT_Academy\\vscode\python\\py_doit')
+quest = np.array(usecsv.switch(usecsv.opencsv('quest.csv')))
+print(quest[quest > 5])
+quest[quest > 5] = 5
+print(quest)
+
+def presentvalue(n) :
+    return (cashflow / ((1 + discount) **n))
+
+print(presentvalue(1))
+print(presentvalue(2))
+
+for i in range(20) :
+    print(presentvalue(i))
+    
+loss = [-750, -250]
+
+profit = [100] * 18
+print(profit)
+
+cf = loss + profit
+print(cf)
+
+print(len(cf))
+cashflow = np.array(cf)
+print(cf)
+
+npv = np.npv(0.045, cashflow)
+print(npv)
+
+irr = np.irr(cashflow)
+print(irr)
+
+data = {'name' : ['Mark', 'Jane', 'Chris', 'Ryan'],
+        'age'  : [33, 32, 44, 42],
+        'score' : [91.3, 83.4, 77.5, 87.7]}
+
+df = pd.DataFrame(data)
+print(df)
+
+ds = df.sum()
+
+print(ds)
+
+dm = df.mean()
+
+print(dm)
+print(df.age)
+print(df['age'])
