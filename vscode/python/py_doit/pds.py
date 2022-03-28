@@ -27,3 +27,12 @@ print(df.loc[:10, ('거래금액','전용면적','단가')])
 print(df.sort_values(by = '거래금액').loc[:, ('거래금액', '시군구')])
 
 print(df.sort_values(by = '거래금액', ascending=False).loc[:, ('거래금액', '시군구')])
+
+print(df[df.거래금액 > 40000].sort_values(by = '전용면적').loc[:,('거래금액','전용면적', '시군구')])
+
+print(df.시군구.str.find('강릉'))
+
+print(df[df.시군구.str.find('강릉')>-1])
+
+dfF = df[df.시군구.str.find('강릉') > -1]
+print(dfF.mean())
