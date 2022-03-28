@@ -35,4 +35,5 @@ print(df.시군구.str.find('강릉'))
 print(df[df.시군구.str.find('강릉')>-1])
 
 dfF = df[df.시군구.str.find('강릉') > -1]
+
 print(dfF.mean())
