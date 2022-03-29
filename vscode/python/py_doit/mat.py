@@ -63,7 +63,6 @@ model2 = smf.ols(formula = 'jobSatisfaction~English + income', data = df2)
 result = model2.fit()
 
 X = [1, 4, 9, 16, 25, 36, 49, 64]
-
 Y = [i for i in range(1, 9)]
 plt.plot(X,Y)
 plt.xlabel('X')
