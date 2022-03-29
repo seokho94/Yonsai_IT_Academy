@@ -59,4 +59,3 @@ for i in soup.find_all('div',{"class" : "item_issue"}) :
     except :
         pass
 f.close()
-
