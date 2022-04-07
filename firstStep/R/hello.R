@@ -18,3 +18,8 @@ hello <- function() {
 }
 
 hello()
+print("H")
+print("E")
+print("L")
+print("L")
+print("O")
