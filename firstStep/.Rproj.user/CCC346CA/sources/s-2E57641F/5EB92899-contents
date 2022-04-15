@@ -23,3 +23,12 @@ print("E")
 print("L")
 print("L")
 print("O")
+
+
+
+
+
+install.packages("descr")
+library(descr)
+install.packages("psych")
+library(psych)
