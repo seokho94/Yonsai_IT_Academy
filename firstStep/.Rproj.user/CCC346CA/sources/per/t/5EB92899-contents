@@ -351,3 +351,9 @@ mtcars
 boxplot(mtcars$wt)
 
 boxplot(mtcars$wt)$stats
+
+mtcars$wt <- ifelse(mtcars$wt > 5.25, NA, mtcars$wt)
+
+str(airquality)
+ggplot(airquality, aes(x=Day, y=Temp)) + geom_point()
+ggplot(airquality, aes(x=Day, y=Temp)) + geom_point(size=3, color="red")

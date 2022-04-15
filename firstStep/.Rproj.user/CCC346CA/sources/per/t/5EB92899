@@ -3,24 +3,24 @@
     "path": "~/GitHub/Yonsai_IT_Academy/firstStep/R/hello.R",
     "project_path": "R/hello.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "4284651768",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1649229296905.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "353,0",
-        "scrollLine": "332"
+        "cursorPosition": "359,0",
+        "scrollLine": "338"
     },
     "folds": "",
-    "lastKnownWriteTime": 1649996950,
+    "lastKnownWriteTime": 1650008427,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1650006971376,
+    "last_content_update": 1650008427868,
     "read_only": false,
     "read_only_alternatives": []
 }
