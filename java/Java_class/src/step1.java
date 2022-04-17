@@ -5,6 +5,7 @@ public class step1 {
 		textPrint("Heeeeeeeeello, World!");
 		int result = sumNum(4,5);
 		textPrint(String.valueOf(result));
+		System.out.println("°¡³ª´Ù");
 	}
 	
 	public static void textPrint(String str) {

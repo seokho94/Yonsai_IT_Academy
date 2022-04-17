@@ -3,7 +3,7 @@
     "path": "~/GitHub/Yonsai_IT_Academy/firstStep/R/hello.R",
     "project_path": "R/hello.R",
     "type": "r_source",
-    "hash": "2762915067",
+    "hash": "4284651768",
     "contents": "",
     "dirty": false,
     "created": 1649229296905.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "20,10",
-        "scrollLine": "1"
+        "cursorPosition": "359,0",
+        "scrollLine": "338"
     },
     "folds": "",
-    "lastKnownWriteTime": 1649315577,
+    "lastKnownWriteTime": 1650008427,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1649315577434,
+    "last_content_update": 1650008427868,
     "read_only": false,
     "read_only_alternatives": []
 }
