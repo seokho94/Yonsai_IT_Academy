@@ -355,5 +355,58 @@ boxplot(mtcars$wt)$stats
 mtcars$wt <- ifelse(mtcars$wt > 5.25, NA, mtcars$wt)
 
 str(airquality)
+ggplot(airquality, aes(x=Day, y=Temp))
 ggplot(airquality, aes(x=Day, y=Temp)) + geom_point()
 ggplot(airquality, aes(x=Day, y=Temp)) + geom_point(size=3, color="red")
+
+ggplot(airquality, aes(x=Day, y = Temp)) + geom_line()
+
+ggplot(mtcars, aes(x=cyl)) + geom_bar(width = 0.5)
+
+mtcars
+ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(aes(fill = factor(gear)))
+
+ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(aes(fill = factor(gear))) + coord_polar()
+
+ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(aes(fill = factor(gear))) + coord_polar(theta = "y")
+
+ggplot(airquality, aes(x = Day, y = Temp, group = Day)) + geom_boxplot()
+
+ggplot(airquality, aes(Temp)) + geom_histogram()
+
+ggplot(airquality, aes(x = Day, y =Temp)) + geom_line() + geom_point()
+
+ggplot(airquality, aes(x = Day, y = Temp)) + geom_line(color = "red") + geom_point(size = 3)
+
+str(economics)
+ggplot(economics, aes(x = date, y = psavert)) + geom_line() + geom_abline(intercept = 12.18671, slope = -0.0005444)
+
+ggplot(economics, aes(x = date, y = psavert)) + geom_line() + geom_hline(yintercept = mean(economics$psavert))
+
+x_inter <- filter(economics, psavert == min(economics$psavert))$date
+ggplot(economics, aes(x = date, y = psavert)) + geom_line() + geom_vline(xintercept =  x_inter)
+
+ggplot(airquality, aes(x = Day, y = Temp)) + geom_point() + geom_text(aes(label = Temp, vjust = 0, hjust = 0))
+
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() + annotate("rect", xmin = 3, xmax = 4, ymin = 12, ymax = 21, alpha = 0.5, fill = "skyblue")
+
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() + annotate("rect", xmin = 3, xmax = 4, ymin = 12, ymax = 21, alpha = 0.5, fill = "skyblue") + annotate("segment", x = 2.5, xend = 3.7, y = 10, yend = 17, color = "red", arrow = arrow())
+
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() + annotate("rect", xmin = 3, xmax = 4, ymin = 12, ymax = 21, alpha = 0.5, fill = "skyblue") + annotate("segment", x = 2.5, xend = 3.7, y = 10, yend = 17, color = "red", arrow = arrow()) + annotate("text", x = 2.5, y = 10, label = "point")
+
+ggplot(mtcars, aes(x = gear)) + geom_bar() + labs(x = "기어수", y = "자동차수",  title = "변속기 기어별 자동차수수")
+
+cor.test(exdata1$Y20_CNT, exdata1$Y21_CNT)
+
+reg_result <- lm(Y21_CNT ~ Y20_CNT, data = exdata1)
+reg_result
+
+install.packages("ggmap")
+register_google(key = "AIzaSyClyDsfhdF4-XZcaBQOY-mKj1rmp4LM2NE")
+gg_seoul <- get_googlemap("seoul", maptype = "roadmap")
+ggmap(gg_seoul)
+
+geo_code <- enc2utf8("대전역") %>% geocode()
+geo_data <- as.numeric(geo_code)
+
+get_googlemap(center = geo_data, maptype = "roadmap", zoom = 13) %>% ggmap() + geom_point(data = geo_code, aes(x = geo_code$lon, y = geo_code$lat))
