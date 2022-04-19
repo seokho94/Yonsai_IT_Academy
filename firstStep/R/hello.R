@@ -402,7 +402,7 @@ reg_result <- lm(Y21_CNT ~ Y20_CNT, data = exdata1)
 reg_result
 
 install.packages("ggmap")
-register_google(key = "AIzaSyClyDsfhdF4-XZcaBQOY-mKj1rmp4LM2NE")
+register_google(key = "keys")
 gg_seoul <- get_googlemap("seoul", maptype = "roadmap")
 ggmap(gg_seoul)
 
