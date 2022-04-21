@@ -20,7 +20,7 @@ head(daejeon_data)
 nrow(daejeon_data)
 
 library(ggmap)
-ggmap_key <- "AIzaSyClyDsfhdF4-XZcaBQOY-mKj1rmp4LM2NE"
+ggmap_key <- ggmapkey
 register_google(ggmap_key)
 daejeon_data <- mutate_geocode(data = daejeon_data, location = addr, source = 'google')
 head(daejeon_data)
