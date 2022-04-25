@@ -5,7 +5,7 @@ library(rgeos)
 library(maptools)
 library(rgdal)
 library(ggmap)
-register_google(key = 'AIzaSyClyDsfhdF4-XZcaBQOY-mKj1rmp4LM2NE')
+register_google(key = 'API키')
 ##-------------------test-------------------------------------------
 
 ##p <- read.csv("~/GitHub/Yonsai_IT_Academy/firstStep/R/sample.csv", header = TRUE)
