@@ -10,5 +10,4 @@ public class StudentExample {
 		Student std2 = new Student();
 		System.out.println("std2 변수가 Student 객체를 참조합니다.");
 	}
-
 }
