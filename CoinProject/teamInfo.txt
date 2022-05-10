@@ -1,0 +1,21 @@
+1. 비트코인 BTC
+2. 이더리움 ETH
+3. 리플 XRP
+4. 솔라나 SOL
+5. 카르다노 ADA
+6. 도지코인 DOGE
+7. 아발란체 AVAX
+8. 폴카닷 DOT
+9. 트론 TRX
+10. 폴리곤 MATIC
+
+코인 키 값 10개를 배열로 저장
+
+필요 정보
+-코인 이름 -> 코인 이름과 심볼 키-값으로 저장
+-코인 심볼 -> "KRW-" 값 제거
+-현재가 -> pyupbit.get_current_price
+-전일대비 -> pyupbit.get_ohlcv로 전날 가격 호출 후 계산식 적용
+-거래대금 -> pyuptit volume 값 출력
+
+current_price 함수 1
