@@ -1,41 +1,28 @@
 import sys
-import py
-import pyupbit as upbit
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import *
-from Current_price import total
+import Current_price
 
-
-ui = uic.loadUiType('coingui.Ui')[0]
-class MainWindow(QMainWindow, ui):
+ui = uic.loadUi('coingui.Ui')[0]
+class MainWindow(QWidget, ui):
   def __init__ (self):
     super().__init__()
     self.setupUi(self)
     self.setWindowTitle("CoinTrding")
-class QV(QGridLayout):
-    def __init__(self):
-        super().__init__()
-        self.initUI()
-
-    def initUI(self):
-
-        self.tableWidget = QTableWidget()
-        self.tableWidget.setRowCount(2)
-        self.tableWidget.setColumnCount(2)
-
-        self.tableWidget.setItem(0, 0, QTableWidgetItem('Apple'))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem('Banana'))
-        self.tableWidget.setItem(1, 0, QTableWidgetItem('Orange'))
-        self.tableWidget.setItem(1, 1, QTableWidgetItem('Grape'))
-
-        layout = QVBoxLayout()
-        layout.addWidget(self.tableWidget)
-        self.setLayout(layout)
-
-        self.setWindowTitle('PyQt5 - QTableWidget')
-        self.setGeometry(300, 100, 600, 400)
-        self.show()
-
+  def show(self):
+    data = [1,2,3,4]
+    self.QTableWidget.setItem(1,1,QTableWidgetItem(str(data[0])))
+    
+"""
+class QL(QGridLayout):
+  def __init__(self):
+    super().__init__()
+    self.ui = uic.loadUi("coingui.ui",self)
+    self.show()
+  def show(self):
+    data = [1,2,3,4]
+    self.tableWidget_3.setItem(1,1,QTableWidgetItem(str(data[0])))
+"""
   
 if __name__ == "__main__":
   app = QtWidgets.QApplication(sys.argv)
