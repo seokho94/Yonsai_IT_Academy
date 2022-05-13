@@ -25,13 +25,13 @@ count = 0;
 
 ##current Price 호출 함수
 def Call_current(target) :
-    return upbit.get_current_price([target])
+    return str(upbit.get_current_price([target]))
 
 
 ##증감계산식 : (현재가 - 전날종가) / 전날종가 * 100
 def Rate_current(target) :
     close_price = Yesterday_price(target)
-    return ((upbit.get_current_price([target])-close_price)/close_price)*100
+    return str(((upbit.get_current_price([target])-close_price)/close_price)*100)
 
 ##전날 종가를 출력
 def Yesterday_price(target) :
@@ -50,12 +50,12 @@ def Today_volume(target) :
     count = 1
     Volume_data = upbit.get_ohlcv(ticker=ticker, interval=interval, count = count)
     Volume = Volume_data['volume']
-    return Volume[0]
+    return str(Volume[0])
 
 ##코인 이름과 심볼 출력
 def print_name(target):
     name = target[4:]
-    return Top_coin[name] + "(" + name + ")"
+    return str(Top_coin[name] + "(" + name + ")")
 
 def data_input(data) :
     global Target_coin
@@ -69,6 +69,7 @@ def total() :
     data = [['코인이름', '현재가', '전일대비', '거래대금']]
     data = data_input(data)
     output_data = data
+    return output_data
 
 def thread_run():
     global count 
@@ -79,6 +80,6 @@ def thread_run():
     if(count>=50) : update.cancel()
     update.start()
     
-    
-thread_run()
+##total()
+
 

@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
-    <height>812</height>
+    <width>1104</width>
+    <height>878</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -58,27 +70,18 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QTableWidget" name="tableWidget_3">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>400</width>
-         <height>0</height>
-        </size>
-       </property>
+      <widget class="QTableWidget" name="current_price">
        <property name="rowCount">
         <number>10</number>
        </property>
        <property name="columnCount">
         <number>4</number>
        </property>
-       <attribute name="horizontalHeaderStretchLastSection">
-        <bool>true</bool>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>119</number>
        </attribute>
        <attribute name="verticalHeaderVisible">
         <bool>false</bool>
@@ -95,7 +98,7 @@
        <row/>
        <column>
         <property name="text">
-         <string>코인이름</string>
+         <string>코인</string>
         </property>
        </column>
        <column>
@@ -105,12 +108,12 @@
        </column>
        <column>
         <property name="text">
-         <string>전일대비</string>
+         <string>변동률</string>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>거래량</string>
+         <string>볼륨</string>
         </property>
        </column>
       </widget>
@@ -123,7 +126,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1082</width>
+     <width>1104</width>
      <height>21</height>
     </rect>
    </property>
