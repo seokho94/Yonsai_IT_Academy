@@ -61,6 +61,7 @@ def data_input(data) :
     global Target_coin
     for target in Target_coin :
         data.append([print_name(target),Call_current(target),Rate_current(target),Today_volume(target)])
+        time.sleep(0.1)
     return data
 
 def total() :

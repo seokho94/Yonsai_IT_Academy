@@ -9,6 +9,10 @@ import pyupbit
 import datetime
 import time
 import pandas as pd
+from Current_price import total
+from PyQt5.QtGui import *
+
+##from Current_price import total
 
 fplt.display_timezone = datetime.timezone.utc 
 fplt.candle_bull_color = "#FF0000"
@@ -84,6 +88,9 @@ class MyWindow(QMainWindow, ui):
         fplt.refresh()      # refresh autoscaling when all plots complete
         fplt.show(qt_exec=False)
         
+        self.initUI()
+        
+        
     def update(self):
         now = datetime.datetime.now()
         self.statusBar().showMessage(str(now))
@@ -96,9 +103,31 @@ class MyWindow(QMainWindow, ui):
                 self.plot.update_data(self.df[['Open', 'Close', 'High', 'Low']])
 
     @pyqtSlot(pd.DataFrame)
+    
     def update_data(self, df):
         self.df = df
-
+          
+    def initUI(self):
+        ##global hlabel
+        data = total()
+        hlabel = data[0]
+        self.tableWidget = QTableWidget()
+        self.tableWidget.setRowCount(10)
+        self.tableWidget.setColumnCount(4)
+        hlabel = data[0]
+        self.tableWidget.setHorizontalHeaderLabels(hlabel)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        ##self.tableWidget.setVerticalHeader()
+        
+        for i in range(10):
+            for j in range(4):
+                item = data[i+1][j]
+                self.tableWidget.setItem(i, j, QTableWidgetItem(item))
+                
+        self.current_verlayout.addWidget(self.tableWidget)
+        self.setLayout(self.current_verlayout)
+        
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MyWindow()
