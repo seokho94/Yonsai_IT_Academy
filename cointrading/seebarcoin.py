@@ -11,6 +11,7 @@ import time
 import pandas as pd
 from Current_price import total
 from PyQt5.QtGui import *
+import threading
 
 ##from Current_price import total
 
@@ -20,6 +21,8 @@ fplt.candle_bull_body_color = "#FF0000"
 fplt.candle_bear_color = "#0000FF"
 
 ui = uic.loadUiType('coingui.Ui')[0]
+
+data = total()
 
 class Worker(QThread, ui):
     timeout = pyqtSignal(pd.DataFrame)
@@ -94,6 +97,7 @@ class MyWindow(QMainWindow, ui):
     def update(self):
         now = datetime.datetime.now()
         self.statusBar().showMessage(str(now))
+        
 
         if self.df is not None:
             if self.plot is None:
@@ -102,6 +106,7 @@ class MyWindow(QMainWindow, ui):
             else:
                 self.plot.update_data(self.df[['Open', 'Close', 'High', 'Low']])
 
+
     @pyqtSlot(pd.DataFrame)
     
     def update_data(self, df):
@@ -109,7 +114,7 @@ class MyWindow(QMainWindow, ui):
           
     def initUI(self):
         ##global hlabel
-        data = total()
+        global data
         hlabel = data[0]
         self.tableWidget = QTableWidget()
         self.tableWidget.setRowCount(10)
@@ -124,10 +129,11 @@ class MyWindow(QMainWindow, ui):
             for j in range(4):
                 item = data[i+1][j]
                 self.tableWidget.setItem(i, j, QTableWidgetItem(item))
-                
+
         self.current_verlayout.addWidget(self.tableWidget)
         self.setLayout(self.current_verlayout)
-        
+    
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MyWindow()

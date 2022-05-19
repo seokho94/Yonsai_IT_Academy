@@ -20,18 +20,16 @@ output_data = []
 ##Thread 종료 판별 Bool 함수
 isView = False
 
-##test stop count
-count = 0;
-
 ##current Price 호출 함수
 def Call_current(target) :
-    return str(upbit.get_current_price([target]))
+    return upbit.get_current_price([target])
 
 
 ##증감계산식 : (현재가 - 전날종가) / 전날종가 * 100
 def Rate_current(target) :
     close_price = Yesterday_price(target)
-    return str(((upbit.get_current_price([target])-close_price)/close_price)*100)
+    current_price = Call_current(target)
+    return str((((current_price)-close_price)/close_price)*100)
 
 ##전날 종가를 출력
 def Yesterday_price(target) :
@@ -60,7 +58,7 @@ def print_name(target):
 def data_input(data) :
     global Target_coin
     for target in Target_coin :
-        data.append([print_name(target),Call_current(target),Rate_current(target),Today_volume(target)])
+        data.append([print_name(target),str(Call_current(target)),Rate_current(target),Today_volume(target)])
         time.sleep(0.1)
     return data
 
