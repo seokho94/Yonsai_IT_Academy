@@ -9,9 +9,12 @@ import pyupbit
 import datetime
 import time
 import pandas as pd
+from sympy import threaded
 from Current_price import total
 from PyQt5.QtGui import *
 import threading
+
+from main import MainWindow
 
 ##from Current_price import total
 
@@ -131,8 +134,11 @@ class MyWindow(QMainWindow, ui):
                 self.tableWidget.setItem(i, j, QTableWidgetItem(item))
 
         self.current_verlayout.addWidget(self.tableWidget)
-        self.setLayout(self.current_verlayout)
-    
+        ##self.setLayout(self.current_verlayout)
+        ##self.update_curPrice()
+        
+        
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -29,7 +29,7 @@ def Call_current(target) :
 def Rate_current(target) :
     close_price = Yesterday_price(target)
     current_price = Call_current(target)
-    return str((((current_price)-close_price)/close_price)*100)
+    return str(round((((current_price)-close_price)/close_price)*100, 2))+'%'
 
 ##전날 종가를 출력
 def Yesterday_price(target) :
@@ -48,7 +48,8 @@ def Today_volume(target) :
     count = 1
     Volume_data = upbit.get_ohlcv(ticker=ticker, interval=interval, count = count)
     Volume = Volume_data['volume']
-    return str(Volume[0])
+    volume_cor = Volume[0]
+    return str(round(volume_cor, 4))
 
 ##코인 이름과 심볼 출력
 def print_name(target):
@@ -70,14 +71,14 @@ def total() :
     output_data = data
     return output_data
 
-def thread_run():
-    global count 
-    total()
-    print(output_data)
-    count = count + 1
-    update = threading.Timer(3, thread_run)
-    if(count>=50) : update.cancel()
-    update.start()
+# def thread_run():
+#     global count 
+#     total()
+#     print(output_data)
+#     count = count + 1
+#     update = threading.Timer(3, thread_run)
+#     if(count>=50) : update.cancel()
+#     update.start()
     
 ##total()
 
