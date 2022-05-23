@@ -28,42 +28,33 @@ def ohlcv(ticker, interval, to, count) :
     return data
 
 
-def thread_1() :
-    print('Thread_1 Start')
-    request_data('current', 'KRW-BTC')
-    time.sleep(1)
-    thread1.run()
+# def thread_1() :
+#     print('Thread_1 Start')
+#     request_data('current', 'KRW-BTC')
+#     time.sleep(1)
+#     thread1.run()
     
-def thread_2() :
-    print('Thread_2 Start')
-    request_data('order', 'KRW-BTC')
-    time.sleep(1)
-    thread2.run()
+# def thread_2() :
+#     print('Thread_2 Start')
+#     request_data('order', 'KRW-BTC')
+#     time.sleep(1)
+#     thread2.run()
     
-def thread_3() :
-    print('Thread_3 Start')
-    request_data('ohlcv', 'KRW-BTC', 'minute1', count = 10)
-    time.sleep(1)
-    thread3.run()
+# def thread_3() :
+#     print('Thread_3 Start')
+#     request_data('ohlcv', 'KRW-BTC', 'minute1', count = 10)
+#     time.sleep(1)
+#     thread3.run()
     
     
-thread1 = threading.Timer(1, thread_1)
-thread2 = threading.Timer(1, thread_2)
-thread3 = threading.Timer(1, thread_3)
+# thread1 = threading.Timer(1, thread_1)
+# thread2 = threading.Timer(1, thread_2)
+# thread3 = threading.Timer(1, thread_3)
 
-thread1.start()
-thread2.start()
-thread3.start()
+# thread1.start()
+# thread2.start()
+# thread3.start()
 
-thread1.join()
-thread2.join()
-thread3.join()
-
-# def thread_run():
-#     global count 
-#     total()
-#     print(output_data)
-#     count = count + 1
-#     update = threading.Timer(3, thread_run)
-#     if(count>=50) : update.cancel()
-#     update.start()
+# thread1.join()
+# thread2.join()
+# thread3.join()
