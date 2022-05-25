@@ -219,3 +219,246 @@ select userID, name, getAgeFunc(birthYear) as '만 나이' from usertbl;
 show create function getAgeFunc;
 drop function getAgeFunc;
 
+drop procedure if exists cursorProc;
+delimiter $$
+create procedure cursorProc()
+begin
+	declare userHeight int;
+    declare cnt int default 0;
+    declare totalHeight int default 0;
+    
+    declare endOfRow boolean default false;
+    
+    declare userCursor cursor for select height from usertbl;
+    
+    declare continue handler for not found set endOfRow = true;
+    
+    open userCursor;
+    
+    cursor_loop : loop
+		fetch userCursor into userHeight;
+        
+        if endOfRow then leave cursor_loop;
+        end if;
+        
+        set cnt = cnt + 1;
+        set totalHeight = totalHeight + userHeight;
+	end loop cursor_loop;
+    
+    select concat('고객 키의 평균 ==> ', (totalHeight/cnt));
+    close userCursor;
+end $$
+delimiter ;
+
+ call cursorProc();
+ 
+ alter table usertbl add grade varchar(5);
+ 
+ drop procedure if exists gradeProc;
+ delimiter $$
+ create procedure gradeProc()
+ begin
+	declare id varchar(10);
+    declare hap bigint;
+    declare userGrade char(5);
+	
+    declare endOfRow boolean default false;
+    
+    declare userCursor cursor for
+		select U.userid, sum(price * amount)
+			from buytbl B
+				right outer join usertbl U
+                on B.userid = U.userid
+			group by U.userid, U.name;
+            
+	declare continue handler for not found set endOfRow = true;
+    open userCursor;
+    grade_loop : loop
+		fetch userCursor into id, hap;
+        if endOfRow then
+			leave grade_loop;
+		end if;
+        
+        case
+			when(hap >= 1500) then set userGrade = '최우수고객';
+            when(hap >= 1000) then set userGrade = '우수고객';
+            when(hap >= 1) then set userGrade = '일반고객';
+            else set userGrade = '유령고객';
+		end case;
+		
+        update usertbl set grade = userGrade where userID = id;
+	end loop grade_loop;
+    close userCursor;
+end $$
+delimiter ;
+
+call gradeProc();
+select * from usertbl;
+
+create database if not exists testdb;
+use testdb;
+create table if not exists testtbl(id int, txt varchar(10));
+insert into testtbl values(1, '레드벨벳');
+insert into testtbl values(2, '잇지');
+insert into testtbl values(3, '블랙핑크');
+
+drop trigger if exists testTrg;
+delimiter //
+create trigger testTrg
+	after delete
+	on testtbl
+    for each row
+begin
+	set @msg = '가수 그룹이 삭제됨' ;
+end //
+delimiter ;
+
+set @msg = '';
+insert into testtbl values(4, '마마무');
+select @msg;
+update testtbl set txt = '블핑' where id = 3;
+select @msg;
+delete from testtbl where id = 4;
+select @msg;
+
+use sqldb;
+
+drop table buytbl;
+create table backup_usertbl(
+	userID char(8) not null primary key,
+    name varchar(10) not null,
+    birthYear int not null,
+    addr char(2) not null,
+    mobile1 char(3),
+    mobile2 char(8),
+    height smallint,
+    mDate date,
+    modType char(2),
+    modDatae date,
+    modUser varchar(256)
+);
+
+drop trigger if exists backUserTbl_UpdateTrg;
+delimiter //
+create trigger backUserTbl_UpdateTrg
+	after update
+    on usertbl
+    for each row
+begin
+	insert into backup_userTbl values( old.userID, old.name, old.birthYear, old.addr, old.mobile1, old.mobile2, old.height, old.mDate, '수정', curdate(), current_user());
+end //
+delimiter ;
+
+
+
+
+drop trigger if exists backUserTbl_UpdateTrg;
+delimiter //
+create trigger backUserTbl_UpdateTrg
+	after update
+    on usertbl
+    for each row
+begin
+	insert into backup_userTbl values( old.userID, old.name, old.birthYear, old.addr, old.mobile1, old.mobile2, old.height, old.mDate, '삭제', curdate(), current_user());
+end //
+delimiter ;
+
+update usertbl set addr = '몽고' where userID = 'JKW';
+delete from usertbl where height >= 177;
+select * from backup_userTbl;
+
+drop trigger if exists userTbl_InsertTrg;
+delimiter //
+create trigger userTbl_InsertTrg
+	After INSERT
+    ON userTBL
+    FOR EACH ROW
+begin
+	signal sqlstate '45000'
+		set message_text = '데이터의 입력을 시도했습니다. 귀하의 정보가 서버에 기록되었습니다.';
+end //
+delimiter ;
+
+#insert into usertbl values('ABC', '에비씨', 1977, '서울', '011', '11111111', 181, '2019-12-25');
+
+drop trigger if exists userTbl_BeforeInsertTrg;
+delimiter //
+create trigger userTbl_BeforeInsertTrg
+	before insert
+    on usertbl
+    for each row
+begin
+	if new.birthYear < 1900 then
+		set new.birthYear = 0;
+	elseif new.birthYear > Year(curdate()) then
+		set new.birthYear = Year(curdate());
+	end if;
+end //
+delimiter ;
+
+alter table usertbl drop grade;
+
+insert into usertbl values('AAA', '에이', 1877, '서울', '011', '1112222', 181, '2022-12-25');
+insert into usertbl values('BBB', '비이', 2977, '경기', '011', '1113333', 171, '2019-3-25');
+
+select * from usertbl;
+
+show triggers from sqldb;
+
+drop database if exists triggerDB;
+create database if not exists triggerDB;
+use triggerDB;
+create table orderTbl(
+	orderNo int auto_increment primary key,
+    userID varchar(5),
+    prodName varchar(5),
+    ordermount int);
+
+create table prodTbl(prodName varchar(5), account int);
+create table deliverTbl(
+	deliverNo int auto_increment primary key,
+    prodName varchar(5),
+    account int );
+
+insert into prodTbl values('사과', 100);
+insert into prodTbl values('배', 100);
+insert into prodTbl values('귤', 100);
+
+drop trigger if exists orderTrg;
+delimiter //
+create trigger orderTrg
+	after insert
+    on orderTbl
+    for each row
+begin
+	update prodTbl set account = account - new.ordermount
+		where prodName = new.prodName;
+end //
+delimiter ;
+
+drop trigger if exists prodTrg;
+delimiter //
+create trigger prodTrg
+	after update
+    on prodTBL
+    for each row
+begin
+	declare orderAmount int;
+    set orderAmount = old.account - new.account;
+    insert into deliverTbl(prodName, account)
+		values(new.prodName, orderAmount);
+end //
+delimiter ;
+
+insert into orderTbl values (null, 'JOHN', '배', 5);
+
+select * from orderTbl;
+select * from prodTbl;
+select * from deliverTbl;
+
+alter table deliverTBL change prodName productName varchar(5);
+
+insert into orderTbl values (null, 'DANG', '사과', 9);
+select * from orderTbl;
+select * from prodTbl;
+select * from deliverTbl;
