@@ -16,7 +16,7 @@ def request_data(function, ticker, interval='minute1', to=datetime.today().strft
         return data
 
 def current_price(ticker) :
-    price = pyupbit.get_current_price(ticker)
+    price = pyupbit.get_current_price([ticker])
     return price
 
 def order_book(ticker) :
