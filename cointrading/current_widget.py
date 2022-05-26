@@ -14,29 +14,44 @@ Target_coin = ["KRW-BTC","KRW-ETH","KRW-XRP","KRW-SOL","KRW-ADA","KRW-DOGE","KRW
 count = 0;
 
 def return_data() :
+    global count
     data = [['코인이름', '현재가', '전일대비', '거래대금']]
     curDate = datetime.today().strftime('%Y-%m-%d')
     for target in Target_coin :
-        
-        coinName = target[4:]
-        currentPrice = req.request_data('current', target)
-        YesterdayPrice = req.request_data('ohlcv', target, 'day', curDate, 1)['close'][0]
-        DtD = round(((currentPrice-YesterdayPrice)/YesterdayPrice)*100, 2)
-        Volume = round(req.request_data('ohlcv',target)['volume'][0], 4)
-        data.append([coinName, currentPrice, DtD, Volume])
-        time.sleep(0.1)
+        #Non-Type Error 발생 -> try-expect로 
+        try :
+            coinName = target[4:]
+            currentPrice = req.request_data('current', target)
+            YesterdayPrice = req.request_data('ohlcv', target, 'day', curDate, 1)['close'][0]
+            DtD = round(((currentPrice-YesterdayPrice)/YesterdayPrice)*100, 2)
+            Volume = round(req.request_data('ohlcv',target)['volume'][0], 4)
+            data.append([coinName, currentPrice, DtD, Volume])
+            time.sleep(0.001)
+        except TypeError :
+            print("NoneType Error")
+            
+            #update.run()
+            
+        # coinName = target[4:]
+        # currentPrice = req.request_data('current', target)
+        # YesterdayPrice = req.request_data('ohlcv', target, 'day', curDate, 1)['close'][0]
+        # DtD = round(((currentPrice-YesterdayPrice)/YesterdayPrice)*100, 2)
+        # Volume = round(req.request_data('ohlcv',target)['volume'][0], 4)
+        # data.append([coinName, currentPrice, DtD, Volume])
+        # time.sleep(0.1)
     return data
 
 def thread1() :
     global count
     output_data = return_data()
+    count = count + 1
+    print("----------------",count,"회차 결과----------------")
     for i in range(len(output_data)) :
         print(output_data[i])
-    count = count + 1
-    time.sleep(1)
-    if(count >= 10) : update.cancel()
+    #time.sleep(1)
+    if(count >= 30) : update.cancel()
     update.run()
 
-update = threading.Timer(1, thread1)
+update = threading.Timer(0.1, thread1)
 update.start()
 update.join()
