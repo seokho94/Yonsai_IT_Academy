@@ -29,7 +29,7 @@ def thread_order() :
     update_data("KRW-BTC")
     print("**********************  {}  ************************".format(count))
     time.sleep(1)
-    order_update.run()    
+    order_update.run()
 
 order_update = threading.Timer(1, thread_order)
 order_update.start()

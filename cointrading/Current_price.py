@@ -12,7 +12,7 @@ import time
 Top_coin = {"BTC" : "비트코인" , "ETH" : "이더리움", "XRP" : "리플", "SOL" : "솔라나", "ADA" : "에이다", "DOGE" : "도지코인", "AVAX" : "아발란체",  "DOT" : "폴카닷", "TRX" : "트론", "MATIC" : "폴리곤"}
 
 ##데이터를 찾기 위한 키 값
-Target_coin = ["KRW-BTC","KRW-ETH","KRW-XRP","KRW-SOL","KRW-ADA","KRW-DOGE","KRW-AVAX","KRW-DOT","KRW-TRX","KRW-MATIC"]
+Target_coin = upbit.get_tickers()
 
 ##UI 출력을 위한 데이터 리스트
 output_data = []
