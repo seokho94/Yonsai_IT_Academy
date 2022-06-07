@@ -9,6 +9,7 @@ close_price = {'coin' : 0}  ##전날 종가에 대한 딕셔너리
 krw_price = [] ##원화마켓 코인에 대한 리스트
 Kor_name = {'Symbol' : 'kor'}
 
+#원화 마켓에 있는 전체 코인의 데이터를 가공하는 과정
 def current_all() :
     global krw_price
     global close_price
