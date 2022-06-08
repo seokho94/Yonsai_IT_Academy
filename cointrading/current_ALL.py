@@ -2,19 +2,23 @@ import threading
 import pyupbit as upbit
 import request_test
 import time
-import math
+from datetime import datetime
+
+#업비트 원화 마켓에 있는 코인의 개수 : 114
 
 count = 0   ##쓰레드 실행 횟수
 close_price = {'coin' : 0}  ##전날 종가에 대한 딕셔너리
 krw_price = [] ##원화마켓 코인에 대한 리스트
 Kor_name = {'Symbol' : 'kor'}
+cur_data = []
 
 #원화 마켓에 있는 전체 코인의 데이터를 가공하는 과정
 def current_all() :
     global krw_price
     global close_price
     global Kor_name
-    current_price = [] ##코인의 이름, rating, 현재가에 대한 리스트
+    global cur_data
+    current_price = [] ##코인의 이름, 등락률, 현재가에 대한 리스트
 
     all_coin = upbit.get_current_price(krw_price) ##원화로 분리된 코인들의 현재가에 대한 데이터를 요청하는 함수
     
@@ -26,9 +30,20 @@ def current_all() :
         # 계산 값을 확인하는 과정
         ##print("coin : " + coin + " yester : {} current : {} rate : {}".format(yester, current, rate))
         current_price.append([name, str(rate)+'%', current])
-        
-    for i in range(len(current_price)) :
-        print(current_price[i])
+      
+    # data 확인 과정  
+    # for i in range(len(current_price)) :
+    #     print(current_price[i])
+    
+    #data 초기화 및 입력
+    cur_data = []
+    cur_data = current_price
+    
+    #데이터 복사 확인 과정
+    # print(len(cur_data))
+    # for i in range(len(cur_data)) :
+    #     print(cur_data[i])
+    
 
 def ticker_data() :
     global krw_price
@@ -62,23 +77,45 @@ def close_data() :
             time.sleep(0.27)
     
     print("실행 시간 : {}" .format(time.time()-start_time)) #실행 시간 확인용
-    
+
+#원화마켓에 거래되는 모든 가상화폐의 Symbol과 한국어 명칭에 대한 정보 추출
 def coin_info() :
     global Kor_name
     coinData = upbit.get_tickers(fiat="KRW", verbose=True)
     for i in range (len(coinData)) :
         Kor_name[coinData[i].get('market')] = coinData[i].get('korean_name')
     
-    
+#현재가를 갱신하기 위한 스레드
+#업비트 기준 am 09:00:00으로 장이 시작되므로 전날 종가를 09시 기준으로 업데이트
 def thread_1() :
+    now = datetime.now()
     global count
     current_all()
     count = count + 1
     print("*********************** {} ************************".format(count))
-    threading.Timer(1, thread_1).start()
+    cur_thread = threading.Timer(1, thread_1)
+    cur_thread.start()
+    if(now.hour==9) and (now.minute==0) and (now.second>=0) :
+        cur_thread.cancel()
+        print("------------종가 갱신 완료------------")
+        update_close()
+        # cur_thread.start()
 
-ticker_data()
-coin_info()
-close_data()
-thread_1()
-# current_all()
+#종가에 dic을 초기화 함과 동시에 업데이트
+def update_close() :
+    global close_price
+    close_price = {'coin' : 0}
+    close_data()
+
+def start() :
+    ticker_data()
+    coin_info()
+    close_data()
+    current_all()
+
+
+# ticker_data()
+# coin_info()
+# close_data()
+# # thread_1()
+# # current_all()
