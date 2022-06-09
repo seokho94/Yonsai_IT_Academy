@@ -3,7 +3,7 @@ import pyupbit as upbit
 import request_test
 import time
 from datetime import datetime
-import cur_ui as cui
+# import cur_ui as cui
 
 #업비트 원화 마켓에 있는 코인의 개수 : 114
 
@@ -38,7 +38,7 @@ def current_all() :
     
     #data 초기화 및 입력
     cur_data = current_price
-    
+    print(cur_data)
     #데이터 복사 확인 과정
     # print(len(cur_data))
     # for i in range(len(cur_data)) :
@@ -94,12 +94,14 @@ def thread_1() :
     # count = count + 1
     # print("*********************** {} ************************".format(count))
     cur_thread = threading.Timer(1, thread_1)
-    cur_thread.start()
-    if(now.hour==9) and (now.minute==0) and (now.second>=0) :
+    if(now.hour==9) and (now.minute==0) and (now.second==0) :
         cur_thread.cancel()
-        print("------------종가 갱신 완료------------")
+        time.sleep(1)
         update_close()
-        # cur_thread.start()
+        print("------------종가 갱신 완료------------")
+        thread_1()
+    else :
+        cur_thread.start()
 
 #종가에 dic을 초기화 함과 동시에 업데이트
 def update_close() :
@@ -107,15 +109,15 @@ def update_close() :
     close_price = {'coin' : 0}
     close_data()
 
-def start() :
-    ticker_data()
-    coin_info()
-    close_data()
-    current_all()
+# def start() :
+#     ticker_data()
+#     coin_info()
+#     close_data()
+#     current_all()
 
 
-# ticker_data()
-# coin_info()
-# close_data()
-# thread_1()
+ticker_data()
+coin_info()
+close_data()
+thread_1()
 # current_all()
