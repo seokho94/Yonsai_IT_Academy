@@ -93,7 +93,7 @@ def thread_1() :
     current_all()
     # count = count + 1
     # print("*********************** {} ************************".format(count))
-    cur_thread = threading.Timer(1, thread_1)
+    cur_thread = threading.Timer(2, thread_1)
     if(now.hour==9) and (now.minute==0) and (now.second==0) :
         cur_thread.cancel()
         time.sleep(1)
