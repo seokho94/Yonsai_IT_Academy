@@ -1,4 +1,4 @@
-package ch10;
+package com.example.news;
 
 public class News {
 	private int aid;
